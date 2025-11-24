@@ -3,47 +3,25 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MyAnimeList</title>
+    <title id="conf">دختر confirmaion </title>
+    <script>
+        let girl = window.confirm("سلام دختری؟؟؟");
+        if (girl == true) {
+            let cc = window.confirm("two step verification: \n مطمئن باشم؟؟؟؟ ");
+            if (cc == true) {
+                window.location.href = "please.html";
+            } else {
+                document.getElementById("conf").textContent = "URL Not Found";
+            }
+        } else {
+            document.getElementById("conf").textContent = "URL Not Found";
+        }
+    </script>
 </head>
 <body>
-    <input type="checkbox" id="start" >
-    <label for="start" id="consider"> I STARTED TO CONSIDER THIS </label>
-
-    <input type="radio" id="complete" name="state">
-    <label for="complete" id="c"> I Completed this thing! </label>
-
-    <input type="radio" id="drop" name="state">
-    <label for="drop" id="d"> I dropeed this </label>
-
-    <input type="radio" id="onn" name="state">
-    <label for="onn" id="o"> I'm watching it!!!</label>
-
-    <input type="radio" id="plan" name="state">
-    <label for="plan" id="p"> I wanna see that!!!!</label>
-
-    <br> <button type="submit" id="sbm"> Save state </button>
-
-    <p id="warns"></p>
-    <script>
-        const ids = ["start", "consider", "complete", "c", "drop", "d", "onn", "o", "plan", "p", "warns", "sbm"];
-        const el = {};
-        ids.forEach(id => {
-            el[id] = document.getElementById(id);
-        });
-
-
-        sbm.onclick =  function(){
-            if(el.start.checked){
-                consider.textContent = "What have you considered?";
-            } else {
-                el.warns.textContent = " \n Like serious bruh i just have this thing for the sake of it but how can you not consider it when you are here??";
-            };
-            switch(true) {
-                case complete.checked:
-                    el.warns.textContent = "this shit works!!!";
-                    break;
-            }
-        };
-    </script>
+    <h1> Not Found </h1>
+    <p> The Request ./https://parsaroidd.github.io was Not Found In the server </p>
+    <hr>
+    <p> maybe say "please" to the browser it works for free and you never showed manor even once</p><h1>:(</h1>
 </body>
 </html>
