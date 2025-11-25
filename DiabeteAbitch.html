@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> MyAnimeList </title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bungee&family=Rubik+Distressed&family=Sixtyfour&family=VT323&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/jpg" href="https://image2url.com/images/1763963439859-2de6588a-5b20-4436-9d27-b2f758de2f11.jpg">
+    <style>
+        *{ box-sizing: border-box; font-family: 'VT323', monospace; }
+        header { padding: 30px; background-color: blueviolet; text-align: center; width: 70%; margin: auto}
+        body { background-image: url(https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fmir-s3-cdn-cf.behance.net%2Fproject_modules%2Fhd%2F61d84a107608503.5faaf12f12466.gif&f=1&nofb=1&ipt=f836e497b88147cc4ba53baf0796b9871073ccafd7d472d469c929edb3867a87) ;}
+        .contain { width: 70%; margin: auto; border: 5px ridge blueviolet; background-color: rgb(217, 177, 255); }
+        .navigation { width:70%; margin:auto; border: 10px dotted rgb(217, 177, 255); background-color: blueviolet; list-style-type: none;}
+        .navigation ul { list-style-type: none; margin: 0px; padding: 0px; overflow: hidden; }
+        .navigation a { color: #000; text-decoration: none; padding:15px; display: block; text-align: center; border-left: 5px rgb(239, 239, 88); }
+        .navigation li { float: left; }
+    </style> 
+</head>
+<body>
+    <header>
+        <h1> DiabetesAbitch; the final </h1>
+    </header>
+    <nav class="navigation">
+            <ul>
+                <li><a href="please.html"> The main Quarters </a></li>
+                <li><a href="mhr.html"> My honest reaction </a></li>
+                <li><a href="credits.html"> Credits </a></li>
+                <li><a href="https://github.com/parsaroidd" target="_blank">GitHub</a></li>
+                <li><a href="ElaheV3.html"> Elahe the third version </a></li>
+            </ul>
+    </nav>
+    <div class="contain">
+    <h1> Time Configuration </h1>
+    <input type="radio" id="manual" name="handler"> <label for="manual"> <img src="https://image2url.com/images/1764094785828-c4cc5ed3-3cdd-40b4-903e-6d28ade41afe.jpg" height=200> </label>
+    <input type="radio" id="auto" name="handler"> <label for="auto"> <img src="https://image2url.com/images/1764094757026-b197434f-370b-4b3a-bb03-602ec14faf8b.jpg" height=200></label>
+    <br>
+
+    <input type="text" id="amount">
+    <input type="text" id="time">
+    <input type="text" id="date">
+    <input type="text" id="note">
+
+
+    <input type="radio" id="mgdl" name="t"> <label for="mgdl"> mgdl</label>
+    <input type="radio" id="mmol" name="t"> <label for="mmol"> mmol </label>
+    <button id="submit"> <img src="https://image2url.com/images/1764094695632-ffaaabf0-fa2b-4a5f-9784-9a01dac52e6b.jpg" height=200> </button>
+    </div>
+
+    <script>
+        const entries = [
+            {amount: 123, date:"1404/9/2", time: "12:20", mgdl: true}
+        ]
+        const notes = [] 
+        
+        function operate(note) {
+
+            const time0 = document.getElementById("time").value;
+            const date0 = document.getElementById("date").value;
+            const amount0 = document.getElementById("amount").value;
+            const mmol = document.getElementById("mmol");
+            const notautotime = document.getElementById("manual");
+            const mg = document.getElementById("mgdl");
+            const autotime = document.getElementById("auto");
+            const now = new Date();
+            const hours = now.getHours().toString().padStart(2, '0');
+            const minutes = now.getMinutes().toString().padStart(2, '0');
+            const year = now.getFullYear();
+            const month = (now.getMonth() + 1).toString().padStart(2, '0');
+            const day = now.getDate().toString().padStart(2, '0');
+            const timee = `${hours} : ${minutes}`;
+            const datee = `${year}/${month}/${day}`;
+
+            if (note == 'ok') {
+                txt = { 
+                    date: datee,
+                    time: timee,
+                    noet: document.getElementById("note").value
+                }
+                notes.push(txt);
+            } else {
+                console.log("follow me on github! @ParsaRoidd");
+            }
+
+
+            if (mmol.checked && notautotime.checked) {
+                obj = {
+                    amount: amount0,
+                    time: time0,
+                    data: date0, 
+                    mgdl: false
+                }
+                entries.push(obj);
+            } 
+            else if(notautotime.checked && mg.checked) {
+                obj = {
+                    amount: amount0,
+                    time: time0,
+                    data: date0, 
+                    mgdl: true
+                }
+                entries.push(obj);
+            }
+            else if (autotime.checked && mg.checked){
+                obj = {
+                    amount: amount0,
+                    time: timee,
+                    date: datee,
+                    mgdl: true
+                }
+                entries.push(obj);
+            } else {
+                obj = {
+                    amount: amount0,
+                    time: timee,
+                    date: datee,
+                    mgdl: false
+
+                } 
+                entries.push(obj);
+            }
+
+            console.log(entries);
+            console.log(notes);
+            
+        }
+        document.getElementById("submit").onclick = function() {
+
+            const time0 = document.getElementById("time").value;
+            const date0 = document.getElementById("date").value;
+            const amount0 = document.getElementById("amount").value;
+            const note0 = document.getElementById("note").value;
+            const autotime = document.getElementById("auto");
+            
+            if (0 < amount0 < 10000 ) {
+                if (autotime.checked || time0 !== "") {
+
+                    if ( autotime.checked || date0 !== ""){
+
+                        if (note0 !== "") {
+
+                            operate("ok");
+                        } else {
+                            operate("Created By @ ParsaRoidd on Github");
+                        }
+                    } else {
+                        alert("enter your date plz");
+                    }
+                } else {
+                    alert("bro enter some time stuff...");
+                }
+            } else {
+                alert("🚧☢ Bro Blood sugar can't be under zero or over like 6000 thousend or sumn, otherwise you weren't here using this, enter sumn valid");
+            }
+        }
+    </script>
+</body>
+</html>
