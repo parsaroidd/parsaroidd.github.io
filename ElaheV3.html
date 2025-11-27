@@ -3,105 +3,111 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title> ElaheV3 </title>
+    <title> Welcome to ParthaGon!!! </title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Bungee&family=Sixtyfour&family=VT323&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Bungee&family=Rubik+Burned&family=Rubik+Distressed&family=Sixtyfour&family=Tomorrow:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Uncial+Antiqua&family=VT323&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/jpg" href="https://image2url.com/images/1764248298726-bb2bf46c-2ae5-4145-baad-6dd24d1187c5.png">
     <style>
-        *{
-            box-sizing: border-box;
-            font-family: 'VT323', monospace;
-        }
-        .BIOS {
-            margin: 0 auto;
-            width: 70%;
-            background-color: rgb(239, 239, 88);
-            
-        }
-        body {
-            background-color: aqua;
-        }
-        header {
-            background-color: rgb(240, 240, 79);
-            text-align: center;
-            padding: 25px; 
-        }
-        .navbar {
-            background-color: silver;
-            height: 50px; 
-        }
-        .navbar ul {
-            list-style-type: none; /* remove the bullets */
-            margin: 0px;
-            padding: 0px;
-            overflow: hidden; /* for the horizental stuff */
-        }
-        .navbar a {
-            color: #000;
-            text-decoration: none;
-            padding:15px;
-            display: block;
-            text-align: center;
-        }
-        .navbar a:hover {
-            background-color: yellow;
-            color: rgb(1, 69, 69);
-            font-family: 'Bungee', 'VT323';
-        }
-        .navbar li {
+        .top {
+            width: 70%; justify-content: center; align-items: center; margin: auto; border: 7px ridge magenta; margin-bottom: 25px;box-shadow: 10px 10px 10px rgb(118, 30, 30); 
+            overflow: hidden; display: flex; color: magenta; font-family: "Rubik Burned", monospace; padding-left: 20px; padding-right: 20px;
+        } .top:hover {
+            box-shadow: 2px 2px 2px red, 4px 4px 4px orange, 6px 6px 6px yellow, 8px 8px 8px green, 10px 10px 10px blue, 12px 12px 12px blueviolet, 14px 14px 14px purple; margin-bottom: 30px;
+        } .bar { 
+            background-color: rgb(1, 1, 50); font-family: "VT323", monospace; font-size: 1.3em; width:70%; margin: auto; border: 7px dotted magenta; text-shadow: 5px 5px 2px rgb(110, 110, 110);
+        } .bar a {
+            color: magenta; text-decoration: none; padding: 15px; display: block; text-align: center;
+        } .bar ul {
+            list-style-type: none; overflow: hidden; margin: 0px; padding: 0px;
+        } .bar li {
             float: left;
-        }
-        .stuff {
-            border: 5px ridge aqua;
-            border-radius: 2px;
-            margin: 20px;
-        }
-        .sidebar {
-            border-left: 5px solid aqua;
-        }
-        aside {
-            margin: 15px;
-            width: 25%;
-            float: left;
-
-        }
-        section {
-            width:30%;
-            float: left;
-            padding: 20px;
-        }
-        article {
-            width: 30%;
-            float: left;
-            padding: 20px;
-        }
-        footer {
-            text-align: center;
-            background-color: beige;
-            font-size: large;
-            display: block;
-            clear: both;
-            margin: 20px;
-        }
-        @media screen and (max-width: 600px){
-            article, section, aside {
-                width: 100%; 
+        } #ff {
+            padding-left: 20px;
+        } .bar a:hover {
+            color:silver; background-color: magenta; font-size: 2.2em; font-family: "Bungee", monospace;
+        } body { 
+            background-image:  url(https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fcdn.wallpapersafari.com%2F75%2F38%2F3eMbwp.gif&f=1&nofb=1&ipt=e3cc450c066f2dbef488ba5b00d235e32d613c6a76919d1061bc18382f2b43c8);
+        } .landing {
+            width: 73%; margin: auto; border: 4px solid magenta; margin-top: 20px;
+        } #banner {
+            color:white;
+        } footer {
+            background-color: magenta; display: flex; justify-content: center; border: 10px dotted rgb(1, 1, 50); width: 70%; margin: auto; margin-top: 20px; font-size: 0.8em; padding: 10px;
+            box-shadow: 10px 10px 10px rgb(118, 30, 30); 
+        } footer:hover {
+            box-shadow: 2px 2px 2px red, 4px 4px 4px orange, 6px 6px 6px yellow, 8px 8px 8px green, 10px 10px 10px blue, 12px 12px 12px blueviolet, 14px 14px 14px purple; margin-bottom: 30px;
+        } .blog {
+            background-color: rgb(1, 1, 50); width: 23%; color: magenta; margin: 5%; padding: 15px; border: 5px dotted magenta;
+        } .menu {
+            width: 20%; margin: 5px; background-color: magenta; color: block; float: right; float: inline-end; 
+        } .wrao {
+            display: flex; align-items: flex-end;
+        } @media screen and (max-width: 600px) {
+            .menu {
+                display: block; width: 100%;
+            } .wrao {
+                display: block;
+            } .blog {
+                width: 100%;
             }
         }
     </style>
 </head>
 <body>
-    <div class="BIOS"> 
-        <header>
-            The third version of elahe
-        </header>
-        <section class="stuff">
-            <p>h1> Introducing Elahe 3, Unlike Chat GPT, you can put a baby in this one</h1> </p>
-        </section>
-         <footer>
-            cpy right by me
-         </footer>
-    </div>
+    <header title="hover over this bad boy i made the rainbow effect myself" class="top">
+        <img src="https://image2url.com/images/1764248298726-bb2bf46c-2ae5-4145-baad-6dd24d1187c5.png" title="Elahe, JSVGF enigine" alt="My ELahe logo" height="100">
+        <h1 id="ff"> Introducing Elahe, Unlike Chat GPT, you can put a baby in this one....</h1>
+    </header>
+
+    <nav class="bar">
+        <ul>
+            <li><a href="please.html">Main Quarters </a></li>
+            <li><a href="ElaheV3.html"> Elahe the 3rd!!</a></li>
+            <li><a href="DiabeteAbitch.html"> DiabetesAbitch </a></li>
+            <li><a href="credits.html">Stuff no one looks at</a></li>
+            <li><a href="mhr.html">My honest reaction </a></li>
+            <li><a href="https://parsaroidd.github.io"> Github </a></li>
+        </ul>
+    </nav>
+    
+    <div class="wrao">
+    <div class="landing">
+
+        <aside class="menu">
+            <h1> Access all Elahe repositories </h1>
+            <ul>
+                <li><a href="" target="_blank"> The initial, 9th Auguest</a></li>
+                <li><a href="" target="_blank"> Elahe Version2</a></li>
+                <li><a href="" target="_blank"></a> Elahe version3 (JSVGF) </li>
+            </ul>
+            <br> 
+            <h1> FAQ: </h1>
+            <ol>
+                <li> Why I picked Elahe? </li>
+                <p> It's My favorite name, I dunno when it rocked w me, BUT IT OH BOY IT DID </p>
+                <h1> WTF is <abbr title="Java Scripted Virtual Girl Friend">JSVGF</abbr>? </h1>
+                <p> nothing lol i just created it. i learned a new HTML tag so just hover over it to see what it's stands for </p>
+                <h1> Parsa why are so awesome?</h1>
+                <p> dunno 😏😏😏💋</p>
+            </ol>
+        </aside>
+        <article class="blog" title="The story of initial Elahe">
+            <h1> Where did all started?</h1>
+            <p> So it was like 9th of August that i first attempted at this, i was like 2weeks in python programming 
+                abd i was enjoying my time, and creating my own grilfriend was always on top of my mind, so i try to make it, 
+                but it was too soon and i just left it there
+                look at the slop:
+            </p>
+            <a target="_blank" href="https://github.com/parsaroidd/Elahe-My-first-official-code-with-users/blob/main/AI%20girlfriend.py">
+                <img src="https://image2url.com/images/1764255175712-776f3855-158d-4f6f-a5a0-739c7d7b203f.jpg" height="70"alt="This is Elahe V1" title="This is Elahe V1"></a>
+        </article> <!-- I FUCKING TRIED TO PUT THIS IN THE TOP RIGHT AND ALL I SHOULD DO WAS TO WRAP IT IN A DIV AND PUT IT BRFORE THE BLOGGGGGG-->
+    </div></div>
+    <footer class="end" title="hover over this bad boy i made the rainbow effect myself">
+        <p> This site was created by @ParsaRoidd on github, this whole things is easily accesible and can be manipulated by every one, 
+            so take any shot of this site with a grain of salt. and also i don't feature any download link or anything and blah blah
+        </p>
+    </footer>
     <script src="Elahe.js"></script>
 </body>
 </html>
