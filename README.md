@@ -8,3 +8,6 @@ The index won't be changed, so it equals the time that i started creating this s
 <br> by the way this was the logo i created in school and its simple and i like it: 
 <img src="https://image2url.com/images/1764248298726-bb2bf46c-2ae5-4145-baad-6dd24d1187c5.png" alt="this my Elahe logo" height=100px>
 <hr> 
+<hr> 
+!12/27/2025
+got my ass up to start developing this again, making the landing page; 
