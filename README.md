@@ -11,3 +11,5 @@ The index won't be changed, so it equals the time that i started creating this s
 <hr> 
 !12/27/2025
 got my ass up to start developing this again, making the landing page; 
+!!!! i developed a test as my first deploy in 2026, on the second of january: ParsaRoidd.github.io/lemmeLiveParsa.html
+email the result to me if you like: ParsaRoidd.github.io@proton.me
