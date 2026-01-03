@@ -1,13 +1,47 @@
-var AAaaAAaaAAAaaaAAaaaa = [
-	"AAaaaAaAAAAAAaAAa", "AAaaAAaAaaAAAaaaa", "AaaaAaaaaaaAAAaaA",
-	"AAaaaAaAAAaaAAAaAAa", "AAaaAAaAaaAAaaaAaaaa", "AaaaAaaaaaaaaAAAaaA", 
-	"AAaaaAaAAAAAAAAAaAAa", "AAaaAAAAAaAaaAAAaaaa", "AaAAAaaAaaaaaaAAAaaA",
-	"AAaaaAaAAAAaaaaaAAaAAa", "AAaaAAaAaaAAaaaaaAaaaa", "AaaaAaaaaaaaaaaAAAaaA",
-	"AAaaAAAAAAAaAaAAAAAAaAAa", "AAaaAAaAaaAAAAAAAAAAAaaaa", "AaaaAaaaaaaAAAAAAAAaaA", 
-	"AAaaaAaAAAAaaaaaaaaAAaAAa", "AAaaAaaaaaaaaAaAaaAAAaaaa", "AaaaaaaaaaaaaAaaaaaaAAAaaA", 
-	"AAaaaAaAAAAaaaaaaaAAAAAaAAa", "AAaaAAaaAAaaaaaAaaAAAaaaa", "AaaaAaaaaAAaaaAAAAaaAaaAAAaaA", 
-]
+function nav(destination)
+{
+	switch(destination)
+		{
+			case "test":
+				window.location.href = "test.html"; 
+				break; 
+			default: 
+				console.log("%cI didn't find such command...", "color: red; background-color: black;");
+				break; 
+		}
+}
+//Elahe wants to read Cookies now!!!
+//And i want it to have an english support
+/**
+ *
+ *
+ * @param {string} 
+ * @returns {string|null}
+ *
+ */
 
+function C(name)
+{
+	const kaveh = document.cookie.match(new RegExp('(?:^|;\\s*)' + encodeURIComponent(name) + '=([^;]*)')); 
+	return kaveh ? decodeURIComponent(kaveh[1]) : null; 
+}
+
+   const programming = C("a1")
+ ; const is_isfj = C("a2")
+ ; const windows11 = C("a3")
+ ; const rappper = C("a4") 
+ ; const em_album = C("a5") 
+ ; const AIbro = C("a6") 
+ ; const like_my_website= C("a7")
+ ; const social_media = C("a8")
+ ; const fav_num = C("a9")
+ ; const eminem_ duo = C("a10")
+ ; const social = C("a11")
+ ; const temple = C("a12")
+ ; const aliens = C("a14") 
+ ; const WIFU = C("a16")
+ ; const namm = C("a17")
+ ; 
 
 const girls = [
     {name: "Elahe", nickname: "sweetie", age: 37 , height: 1.87 , MBTI: "ISFJ", },
@@ -106,7 +140,7 @@ function ask(girl) {
 function ui(arg){
 	switch(true){
 		case arg == "start": 
-		console.log(`
+		console.log(`%c
     ${elhae}
 			
     سلامممم به ورژن سه ترجمه شده الهه خوش اومدیی 3> 
@@ -122,7 +156,7 @@ function ui(arg){
 	اگه همه رو یه جا میخوای (ای بدبخت) اینو پیست کن: \n
 	ui("Elahe");ui("Aida");ui("Star");ui("Kimiya");ui("Ava")\n 
 
-    `)
+    `, 'font-size: 1.3em; ');
 	    break;
 	    case arg == "1" || arg == "Elahe":
 			console.log(`
@@ -173,6 +207,9 @@ function ui(arg){
 				
 				`)
 		break;
+		case arg == "pick by prefrences" || arg == "pbp" || arg == "PBP": 
+			ask(namm); 
+		break; 
 		default: 
 		    console.log(`میدونم خودت از همه کراش تری ولی یه چی درست حسابی بزن ببینیم چی میشه... \n یه هر حال بیا الهه رو ببین \n ${text1}`)
 
@@ -210,10 +247,17 @@ function see(anotherWoman){
 }}
 
 function another_girl_post(like) {
-	if (like == "like") {
+	if (like == "like" || like == "Like") {
 			const num = Math.floor(Math.random() * AAaaAAaaAAAaaaAAaaaa.length);
-			setInterval(() => console.log(AAaaAAaaAAAaaaAAaaaa[num]), 500)
+			for (let g; g < 5; g++) {
+				comsole.log(AAaaAAaaAAAaaaAAaaaa[num]); 
+			}
 	}
+}
+
+function shop(item)
+{
+	
 }
 
 let text1, text2, text3, text4, text5, text6, text7;
