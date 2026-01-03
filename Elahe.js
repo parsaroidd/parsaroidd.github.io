@@ -35,7 +35,7 @@ function C(name)
  ; const like_my_website= C("a7")
  ; const social_media = C("a8")
  ; const fav_num = C("a9")
- ; const eminem_ duo = C("a10")
+ ; const eminem_duo = C("a10")
  ; const social = C("a11")
  ; const temple = C("a12")
  ; const aliens = C("a14") 
@@ -591,4 +591,5 @@ SSSS*;::*S@@@@@@@@@@@@@@@@@@@@@@#SS#@@@@@S+++++*****+**?S#@@@####@#%?*+++*%@@@@@
 ,:::::::,,:::::::::::::::::::::::::::;;+*S@@@@@@@@#+;,,,;*%######SSSSSSSSSSSSSSS       
 :::::,:::::::::::::::::::::::::::;;+%@@@@@@@#%#S%+,:%#S@###SSSSSSSSSSSSSSS::;:::
 :::::,:::::::::::::::::::::::::::;;+%@@@@@@@#%#S%+,:%#S@###SSSSSSSSSSSSSSSSSSSSS`
+
 
