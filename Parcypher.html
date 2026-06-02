@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<head>
+	<title> PARCYPHER </title>
+	<link rel="icon" href="a.jpg">
+</head>
+<style> 
+body { 
+	background-color: pink; padding: 12%; font-family: monospace; 
+} .c { 
+	display: flex; justify-content: center; flex-direction: column; align-items: center;
+} button { 
+	border: none; background-color: pink; font-family: monospace; font-size: 1.5rem; color: blueviolet;
+} 
+</style>
+<body>
+	<main>
+		<div class="c">
+			<h1 id="out"> Welcome to Parcypher! </h1> <hr><br>
+			<textarea id="ff" style="background-color: pink;" cols="180" rows="10" ></textarea>
+			<div style="display: flex; flex-direction: row;">
+			<button style="margin-top: 15px;"id="submit">READ /</button>
+			<button style="margin-top: 15px;"id="submit0">WRITE</button></div>
+		</div> 
+	</main> 
+</body>
+<script> 
+	const MAIN = {
+		 1: " ", 
+		 2: "z", 
+		 3: "x",
+		 4: "c",
+		 5: "v",
+		 6: "b", 
+		 7: "n", 
+		 8: "m", 
+		 9: "a", 
+		10: "s", 
+                11: "d", 
+                12: "f", 
+                13: "g",
+		14: "h",
+                15: "j",
+                16: "k", 
+                17: "l", 
+                18: "q", 
+                19: "w", 
+                20: "e",
+		21: "r", 
+                22: "t", 
+                23: "y",
+		24: "u", 
+                25: "i",
+                26: "o", 
+                27: "p", 
+                28: "Z", 
+                29: "X", 
+                30: "C",
+		31: "V", 
+                32: "B", 
+                33: "N",
+		34: "M",
+                35: "A",
+                36: "S", 
+                37: "D", 
+                38: "F", 
+                39: "G", 
+                40: "H",
+		41: "J", 
+                42: "K", 
+                43: "L",
+		44: "Q",
+                45: "W",
+                46: "E", 
+                47: "R", 
+                48: "T", 
+                49: "Y", 
+                50: "U",
+		51: "I", 
+                52: "O", 
+                53: "P",
+		54: "7", 
+                55: "8",
+                56: "9", 
+                57: "0", 
+                58: "(", 
+                59: "_", 
+                60: "!",
+		61: "?", 
+		63: ".", 
+		63: ";",
+	}
+
+	const temp = {
+                 1: " ", 
+                 2: "a", 
+                 3: "b",
+                 4: "c",
+                 5: "d",
+                 6: "e", 
+                 7: "f", 
+                 8: "g", 
+                 9: "h", 
+                10: "i", 
+                11: "j", 
+                12: "k", 
+                13: "l",
+                14: "m",
+                15: "n",
+                16: "o", 
+                17: "p", 
+                18: "q", 
+                19: "r", 
+                20: "s",
+                21: "t", 
+                22: "u", 
+                23: "v",
+                24: "w", 
+                25: "x",
+                26: "y", 
+                27: "Q", 
+                28: "A", 
+                29: "E", 
+                30: "B",
+                31: "C", 
+                32: "D", 
+                33: "F",
+                34: "G",
+                35: "H",
+                36: "I", 
+                37: "J", 
+                38: "J", 
+                39: "L", 
+                40: "M",
+                41: "N", 
+                42: ".", 
+                43: "،",
+                44: "!",
+                45: "?",
+                46: ",", 
+                47: "؟", 
+                48: "1", 
+                49: "2", 
+                50: "3",
+                51: "4", 
+                52: "5", 
+                53: "6",
+                54: "7", 
+                55: "8",
+                56: "9", 
+                57: "0", 
+                58: "(", 
+                59: "*", 
+                60: ":", 
+		61: "}",
+	};
+	const mem = [];
+	let arr; let ar; let st; let CODE = "12345./67890-=!@#$%^&*()+QWERTYUIOPASDFGHJKL:';ZXCVBNM<>~`"; 
+	let a = ``;
+
+	function Electrify(input)
+	{
+		for (let i = 0; i < input.length; i++)
+		{ 
+			if(!mem.includes(input[i]))
+			{ 
+				temp[i] = input[i]; mem[i] = input[i];
+			} else { 
+				temp[i] = MAIN[i]; mem[i] = MAIN[i];
+			}
+		}
+		for (let i = 0; i < 61; i++) { 
+			mem[i] = temp[i]
+		}
+		Final()
+	} function Search(chr) {
+		for (let i = 0; i < 61; i++) { 
+			if( chr == arr[i] ) { 
+				return i;
+				break;}}}
+	function Final() { 
+		for (let i = 0; i < st.length; i++) {
+			let X = Search(st[i], 0);
+			if ( ar[X] != undefined ) { 
+				a += ar[X];
+			}}}
+	document.getElementById('out').addEventListener('click', () => { CODE = window.prompt("Hm?"); } )
+        function render() 
+	{
+                st = document.getElementById('ff').value;
+                Electrify(CODE); 
+                document.getElementById('out').textContent = a;
+        }
+
+	document.getElementById('submit').onclick = () => { arr = temp; ar = MAIN; render(); } 
+	document.getElementById('submit0').onclick = () => { arr = MAIN; ar = temp; render(); } 
+	
+/*
+*    This program is brought to you by Parsa!!!
+*    <ParsaRoidd> at github, 
+*    <ParsaRoidd.github.io> on the world wide web, 
+*    <ParsaRoidd.github.io@proton.me> for contacting with me!!!
+*/   
+
+</script>
