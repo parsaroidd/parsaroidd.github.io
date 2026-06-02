@@ -1,0 +1,107 @@
+﻿<!DOCTYPE html>
+<style>
+@font-face {
+        font-family: "Fixed";
+        src: url('F.ttf') format('truetype');
+}
+  #ParcipherV2 textarea { 
+	border: none; width:100%; font-size: 1.5em; background-color: pink;
+} #ParcipherV2 textarea:focus { 
+	  outline: none;
+} body { 
+	background-color: pink; font-family: "Fixed";
+} #stdintxt {
+	font-size: 0.03em; bottom: 1px; position: absolute; 
+}
+
+</style>
+<head> 
+	<title>Parcipher</title>
+	<link rel="icon" href="https://i.pinimg.com/originals/ba/e3/0e/bae30e0c7acfec296e5a30d0a75af0f1.gif" sizes="32x32" type="image/png">
+</head>
+<body>
+	<main>
+		<div id="ParcipherV2">
+			<textarea readonly id="cipher-admit" style="overflow: scroll;"> Click Here for Parcipher! </textarea> 
+			<textarea id="cipher-inn" rows=10></textarea> 
+		</div>
+		<input type="file" id="stdintxt" accept=".txt"/> 
+	</main>
+</body>
+<script src="KEY.js"></script>
+<script>
+	document.getElementById('stdintxt').addEventListener('change', (e) => { 
+		const file = e.target.files[0];
+		if (!file) return; 
+
+		const reader = new FileReader();
+
+		reader.onload = (event) => {
+			GENERAL_KEY = event.target.result;
+		};
+		reader.readAsText(file);
+	}); 
+
+
+	const parcipher = 
+	{
+		en: [
+			" ","!","?","@","#","$","%","^","&","*","(",")","+","=","[","]","٬","ء","{","}","|","\\","<",">",",",".",":",";","'","\"","/","~","`","0","1","2","3","4","5","6","7","8","9","a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z","A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z","۰","۱","۲","۳","۴","۵","۶","۷","۸","۹","آ","ا","ب","پ","ت","ث","ج","چ","ح","خ","د","ذ","ر","ز","ژ","س","ش","ص","ض","ط","ظ","ع","غ","ف","ق","ک","گ","ل","م","ن","و","ه","ی","،","؛","؟","«","»","؛","،","۰","۱","۲","۳","۴","۵","۶","۷","۸","۹"
+			], 
+		temp: [], 
+
+		find: function(arg, arr) 
+		{ 
+			for (let i = 0; i < arr.length; i++) { if (arr[i] == arg) { return i; break; }}
+		},
+
+		auto_crypt: function(str, shift_target) 
+		{
+			key = GENERAL_KEY; 
+			let text = "";
+			for (let i = 0; i < key.length; i++) 
+			{ if (!this.temp.includes(key[i])) { this.temp.push(key[i]) } }
+
+			let init; let finall; if (shift_target) { init = this.en; finall = this.temp; } else { init = this.temp; finall = this.en; }; 
+
+			for (let x = 0; x < str.length; x++) 
+			{ 
+				X = init[this.find(str[x], finall)];
+				if (str[x] == "%" || str[x] == "\n"){ 
+					text += "\n";
+					text += "%";
+			        } else if(X != undefined) { 
+					text += X;
+				}  
+			}
+			let txt = text.replace("%", "");
+			return txt;
+		}, 
+
+		submit: document.getElementById("cipher-admit"), 
+
+		configure: function(content, prinT)
+		{
+			let res; 
+			if (parcipher.en.includes(content[1]) || parcipher.en.includes(content[3])) 
+			{ 
+				res = parcipher.auto_crypt(content, false);
+
+			} else if (content.length < 2) {
+				res = "Click for Parcipher"; 
+			} else { 
+				res = parcipher.auto_crypt(content, true); 
+			}
+			if (prinT) { 
+			parcipher.submit.value = res;
+				console.log(res);}
+			return res; 
+			
+		}, 
+		Text: document.getElementById("cipher-inn")
+	}
+
+parcipher.Text.addEventListener('mousemove', () => { parcipher.configure(parcipher.Text.value, true); }); 
+parcipher.Text.addEventListener('touchmove', () => { parcipher.configure(parcipher.Text.value, true); }); 
+
+</script>
