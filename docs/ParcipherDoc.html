@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<link rel="icon" href="https://i.pinimg.com/originals/ba/e3/0e/bae30e0c7acfec296e5a30d0a75af0f1.gif" sizes="32x32" type="image/png">
+<style>
+@font-face {
+	font-family: "Fixed";
+	src: url('F.ttf') format('truetype');
+} 
+.ccode { 
+	background-color: brown; padding: 5px; color: white; font-size: 1.2em;
+} .pree {
+	margin: auto; width: 80%;
+} body {
+	font-size: 1.2em; background-color: black; color: white; width: 90%; margin: auto; font-family: "Fixed";
+} header {
+	width: 95%; background-color: brown; position: absolute; top: 0; left: 0; padding: 30px;
+} ul  {
+	display: flex; justify-content: space-between; list-style-type: none;
+} a { 
+	color: white; text-decoration: none;
+} a:visited { 
+	color: white;
+} footer {
+	background-color: brown; padding: 30px;
+} summary {
+	color: brown;
+}
+</style>
+<!--
+	////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+	//												              //
+	// This documentation is created by @parsaroidd at github.com, for the program parcipher that you can find at //
+	// parsaroidd.github.io/parcipher, you can contact me using my e-mail address:                                //
+	//              parsaroidd.github.io@proton.me                                                                //
+	//                                                                                                            //
+	//////////////////////////////////////////////////////////////////////////////////////////////////////////////// -->
+<head> 
+	<title> Parcipher Document</title>
+</head>
+<body>
+	<header>
+	        <a href="https://parsaroidd.github.io/home" target="_blank" title="Go to Home page"><h1> PARCIPHER3.0, By ParsaRoidd</h1></a>
+		<h2> If they can't understand chinese, they can't understand you either...</h2>
+	</header>
+	<main>
+		<pre>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+		</pre>
+		<p>
+			Welcome!!! Parcipher is a simple text encrpytion program, that maps English and presian characters to A lot of possible 
+		Other characters.
+		previos versions were limited, and the encrypted output was scrambled alphabet, that you could tell it's encrypted. but now I'm back with 
+		chinese one!
+		It's abit less suspicious.
+		</p>
+		<h1> ATTRIBUTES </h1>
+		<pre class="ccode">
+                en: [
+                        " ","!","?","@","#","$","%","^","&lt;","*","(",")","+","=","[","]","٬","ﺀ","{","}","|","\\","<",">",",",".",":",";","'
+			","\"","/","~","`","0","1","2","3","4","5","6","7","8","9","a","b","c","d","e","f","g","h","i","j","k","l","m","n","o",
+			"p","q","r","s","t","u","v","w","x","y","z","A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S",
+			"T","U","V","W","X","Y","Z","۰","۱","۲","۳","۴","۵","۶","۷","۸","۹","ﺁ","ﺍ","ﺏ","ﭖ","ﺕ","ﺙ","ﺝ","ﭺ","ﺡ","ﺥ","ﺩ
+			","ﺫ","ﺭ","ﺯ","ﮊ","ﺱ","ﺵ","ﺹ","ﺽ","ﻁ","ﻅ","ﻉ
+			","ﻍ","ﻑ","ﻕ","ﮎ","ﮒ","ﻝ","ﻡ","ﻥ","ﻭ","ﻩ","ﯼ","،","؛","؟","«","»","؛","،","۰","۱","۲","۳","۴","۵","۶","۷","۸","۹"
+                        ], 
+			temp: [],
+		</pre>
+		<pre class="pree">
+	This one ugly array is all the characters we are able to ENCRYPT, you can change that to any length you like, with any utf-8 characters.
+The more you add characters, the more you need characters in your KEY.js.
+	and temp is the destination, were characters from KEY.js get stored.
+		</pre> 
+		<details>
+			<summary>
+				meet DOM, Text and submit?
+			</summary>
+			<pre class="ccode">
+                         submit: document.getElementById("cipher-admit"),
+			 Text: document.getElementById("cipher-inn") 
+			</pre>
+		</details>
+			<pre class="pree">
+	We show and get our result with these two, submit being the resulting text amd Text being the input we take.
+			</pre>
+		<details>
+			<summary>
+				GENERAL_KEY, the boogie man that used to be stable
+			</summary>
+			<pre class="ccode">
+			let GENERAL_KEY = "詂詁詀訿訾証註診訸訷訶訵訴訳訲許訰訯訮設訬訫訪訩訨訧訦訥訣訢訡訠訟訞訝訜訛訚訙記託訖訕訓
+			訒訑訐訏討訌訌訊訉計訇訆訆訅訄訃訁言觿觾觽觼觻觺觹觸觷觶觵觴觳觲觱觰觯觮觭觬觫觪觩觨觧觥觤解觢觡觠觟觞觝觜觛觛觚觘
+			觗觖觖觕觔觓角觑觏觎觍觌觋觊觉览视觅规觃观观见觀覾覽覼覻覺覹覸覷覵覴観覲覱覯覭覭覫親覩覨覧覦覥覤覣覢覡覠覞覝覜覛覚覙覘覗視覕覔覓
+			覒覑覐規覎覌見覊覉覈覇覅覄覂要西西襽襽襻襺襹襸襷襷"
+			</pre> 
+		</details>
+		<pre class="pree">
+	<h1> THIS CHARACTERS ARE RANDOM SO I HOPE THE DON'T MEAN SUMN BAD </h1>
+	I already told the tragic backstory of GENERAL_KEY in function section, so I won't go through it again 
+you must have same amount or more unique characters in here comparing to the amount you have in parcipher.en . It's good to have it in a separate file.
+		</pre>
+		<h1>
+			FUNCTIONS
+		</h1>
+		<pre class="ccode"> 
+                find: function(arg, arr) 
+                { 
+                        for (let i = 0; i < arr.length; i++) { if (arr[i] == arg) { return i; break; }}
+                }>
+		</pre>
+		<pre>
+
+	Here, ALL FUNCTIONS ARE A METHOD OF AN OBJECT PARCIPHER, so I won't mention again!
+
+find(arg: int, arr: char), takes an Array as argument as it's second parameter, and iteraters until it finds the first argument given in the array and then, 
+return the index, or it will return nothing. certainly there was an simpler way for this, but hey, neither me or JavaScript doesn't care for now.
+But I am finding myself thinking about it after starting to learn rust (I use rust btw).
+
+		</pre>
+		<details> 
+			<summary>
+				function auto_crypt(str: string, shit_target: boolean); 
+			</summary>
+			<br>
+			<pre class="ccode">
+01.              auto_crypt: function(str, shift_target) 
+02.                {
+03.                     key = GENERAL_KEY; 
+04.                     let text = "";
+05.                     for (let i = 0; i < key.length; i++) 
+06.                     { if (!this.temp.includes(key[i])) { this.temp.push(key[i]) } }
+07.
+08.                     let init; let finall; if (shift_target) { init = this.en; finall = this.temp; } else { init = this.temp; finall = this.en; }; 
+09.
+10.                     for (let x = 0; x &lt;  str.length; x++) 
+11.                     { 
+12.                             X = init[this.find(str[x], finall)];
+13.                             if (str[x] == "%" || str[x] == "\n"){ 
+14.                                     text += "\n";
+15.                                     text += "%";
+16.                             } else if(X != undefined) { 
+17.                                     text += X;
+18.                             }  
+19.                     }
+20.                     let txt = text.replace("%", "");
+21.                     return txt; },
+			</pre>
+		</details>
+		<div class="pree">
+		<pre>
+
+	the variable key is just a copy of mutable variable declared on KEY.js file, it was constant, but now it's mutable due to the fact that
+web version accepts user input, so the key is able to be manipulated to in Browser console.
+
+	first, we initialize the temp attribute of the object, which we "fill" it, in a way that we iterate through each character in key, 
+and pushing into the array we happen to call temp, if the individual character hasn't already taken a place there, This idea came from 
+first version, which i would just pass normal English scentences a GENERAL_KEY, and scentences have a lot re-accuring characters!
+That was all line 5 and 6 are doing.
+
+	the 8th line is everything that was wrong with 2 previous versions, it abstracted away the source and destination arrays, so I don't need two
+diffrent functions under the name of encrypt and decrypt that are, just doing the same thing with the arrays switched, and there is only two possible ways.
+So a boolean is a great thing for it to take a sweet home at the parameters; with true and false, we just shift which array should be destination and which one
+should be source.
+
+	After this its just fun and games! for each character in str, which if FINALLY the thing we want to do work on, we simply find the index of that
+character, in the source array, and just replace it with the same index in the destination array, with a little bit of trickery for new line characters, 
+finally the return statement, is the final thing... righ?
+		</pre>
+		</div>
+		<details>
+			<summary>
+				function configure(content: string, prinT: boolean);
+			</summary>
+			<pre class="ccode">
+01.             configure: function(content, prinT)
+02.             {
+03.                     let res; 
+04.                     if (parcipher.en.includes(content[1]) || parcipher.en.includes(content[3])) 
+05.                     { 
+06.                            res = parcipher.auto_crypt(content, false);
+07.
+08.                     } else if (content.length < 2) {
+09.                             res = "Click for Parcipher"; 
+10.                     } else { 
+11.                             res = parcipher.auto_crypt(content, true); 
+12.                     }
+13.                     if (prinT) { 
+14.                     parcipher.submit.value = res;
+15.                             console.log(res);}
+16.                     return res;         
+17.             },
+			</pre>
+		</details>
+		<pre class="pree">
+	Ironically the first control flow is where the actual auto_crypt happens! this function checks the second character of the input,
+because maybe accidently the first one is something weird, and just for being sure, it checks the fourth one too. 
+
+	Well, if second and fourth characters are in our <strong>parcipher.en</strong>, it means it's a normal human readable text, and normally we want to Encrypt that, 
+so we just call auto_crypt with true as second argument, and for else, just pass false, because it contained characters we don't know, potentially chinese characters;
+So we'll encrypt it. and a little bit of detail for empty or semi-empty input have be considered here on line 9.
+
+	<h1> Why prinT </h1>
+	I wanted to use this object in several places in this very program, and somethimes i just need return value, I don't need all the
+Fancy displaying, so prinT is there to make sure that you want to display the result!
+		</pre>
+
+
+
+
+	</main>
+	<pre>
+
+
+
+	</pre>
+	<footer>
+		E-mail me at < parsaroidd.github.io@proton.me > 
+	</footer>
+
+</body>
