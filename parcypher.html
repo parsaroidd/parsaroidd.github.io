@@ -5,13 +5,13 @@
 </head>
 <style> 
 body { 
-	background-color: blueviolet; color: blueviolet;
+	background-color: blueviolet; color: blueviolet; font-family: "Fixed";
 } main { 
 	background-color: pink; width: 70%; Margin: auto; padding: 5px; border: 5px dotted magenta; 
 } .c { 
 	display: flex; justify-content: center; flex-direction: column; align-items: center;
 } @font-face { 
-	font-family: "Fixed"; src: url('Fixedsys.ttf'); font-style: normal; font-weight: normal;
+	font-family: "Fixed"; src: url('F.ttf'); font-style: normal; font-weight: normal;
 } button { 
 	border: none; background-color: pink; font-family: "Fixed"; font-size: 1.5rem; color: blueviolet;
 }
@@ -158,7 +158,7 @@ body {
 	const mem = [];
 	let arr; let ar; let st;
 	let a = ``;
-	let choice = window.confirm("سلام فدات شم، اگه قصدت برا خوانش پیام استکه بزن رو اوکی یا هر دکمه ای مثبی که این پنجره داره، اگه میخوای پیامی بنویسی، بزن رو اون یک، پنجره ی بعدی هم اگه بدون تایپ کردن  بزنی بره با همون رمز استاندار رمزگذاری میشه. بوس");
+	let choice = window.confirm("سلام فدات شم، اگه قصدت برا خوانش پیامه بزن روی اوکی یا هر دکمه ی مثبتی که این پنجره داره، اگه میخوای پیامی بنویسی، بزن رو اون یکی، پنجره ی بعدی هم اگه بدون تایپ کردن  بزنی بره با همون رمز استاندار رمزگذاری میشه. بوس");
 	if (choice == true) { arr = temp; ar = MAIN; }
 	else { arr = MAIN; ar = temp;}
 	let CODE = window.prompt("جمله رمز رو بریز بیرون شیطون");
