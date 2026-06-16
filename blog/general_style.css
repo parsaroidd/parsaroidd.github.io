@@ -1,0 +1,107 @@
+:root
+{
+	--footer-padding    : 10px;
+	--header-padding    : 10px;
+	--footer-background : url('mint.jpg');
+	--header-background : url('mint.jpeg');
+        --main-background   : url('mint2.png');
+	--padding-content   : 15px;
+}
+@font-face
+{
+	font-family: "terminal";
+	src : url("terminal.ttf") format("truetype");
+}
+* { 
+	overflow: auto;
+	font-family: "terminal";
+}
+body
+{
+	background-image: var(--main-background);
+        background-size  : cover;
+        background-repeat: no-repeat;
+
+}
+header
+{
+        width            : 80%;
+        margin           : auto;
+        padding          : var(--header-padding);
+        background-image : var(--header-background);
+        background-size  : cover;
+        background-repeat: no-repeat;
+        position         : absolute;
+        top              : 2%;
+        left             : 10%;
+	background-position: 50% 50%;
+	height             : 13%;
+	display            : flex;
+}
+footer
+{
+        width            : 80%;
+        margin           : auto;
+	color   	 : black;
+	text-shadow      : 2px 4px 4px white;
+	padding 	 : var(--footer-padding);
+	background-image : var(--footer-background);
+        background-size  : cover;
+	background-repeat: no-repeat;
+	position         : absolute; 
+	bottom           : 2%;
+	left             : 10%;
+	background-position : 27% 27%;
+	height              : 8%;
+
+}
+main
+{
+	padding          : var(--padding-content);
+        width            : 79%;
+        margin           : auto;
+	background-color : white; 
+	opacity          : 0.5;
+	position         : absolute;
+	left             : 10%;
+	top              : 20%;
+	height           : 60%;
+}
+.mini-main
+{
+	display: flex;
+	flex-direction: row;
+}
+.list {
+	width: 20%;
+	background-color: silver;
+	position: absolute; 
+	top: 22%;
+	left: 12%;
+	opacity : 0.7;
+	padding : 5px;
+	height: 58%;
+}
+.content
+{
+	width :55%;
+	height: 58%;
+	position: absolute;
+	top: 24%;
+	left: 34%;
+}
+#navi
+{
+	display: flex;
+	padding: 0;
+	margin: 0;
+	justify-content: space-between;
+} 
+#navi li:hover
+{
+	font-size: 3em;
+}
+#navi a
+{
+	color: black;
+}
