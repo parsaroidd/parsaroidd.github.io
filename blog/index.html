@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+
+<link rel="stylesheet" href="general_style.css"/> 
+<link rel="icon" href="./mint4.jpg"/>
+<title> PARSA-MANIA </title>
+
+<header>
+	<img src="./mint4.jpg" height=85 style="margin-right: 10px;"> 
+	<div style="font-size: 0.8em;">
+		<h1> THE PARSA-MANIA </h1>
+		<h3> today's topic:  </h3>
+		<h2 style="color: white;"> GENRAL TEMPLATE</h2> 
+	<div>
+</header> 
+<main>
+</main>
+<div class="list">
+	<p>
+	This is just a general template for my future blogs.
+	this is just a rust snippet code I'm tnikering with right now:
+	</p>
+	<img src="mint4.jpg">
+</div>
+<div class="content">
+<pre>
+const RICK: usize = 4
+
+;   use       std::io::{Write, stdout}
+;   use crossterm::terminal::{self, Clear, ClearType, ScrollUp}
+;   use crossterm::cursor::{MoveTo}
+;   use crossterm::{QueueableCommand, execute, ExecutableCommand}
+;   use crossterm::event::{read, Event, KeyCode, KeyModifiers, EnableMouseCapture, DisableMouseCapture, MouseEventKind, MouseButton}
+;   use       std::thread
+;   use std::time::Duration
+;
+
+fn comment(coords: (u16, u16), index: usize, mark: usize, stream: &mut std::io::Stdout) -> isize
+{
+    stream.execute(MoveTo(coords.0 / 2 - QUESTIONS[index][mark + 5].len() as u16 / 2, coords.1 / 2))
+        .unwrap()
+        .write(QUESTIONS[index][mark + 5].as_bytes())
+        .unwrap();
+    stream.flush();
+
+    match mark
+    {
+        0 => return SCORES[index].0,
+        1 => return SCORES[index].1,
+        2 => return SCORES[index].2,
+        3 => return SCORES[index].3,
+        _ => return -1,
+    }
+}
+
+fn brian(index: usize, stream: &mut std::io::Stdout) -> (u16, u16)
+{
+    let (cols, rows) = terminal::size().unwrap();
+    let curr = QUESTIONS[index];
+    let kitten = cols - curr[0].len() as u16;
+
+    if kitten > 0
+    {
+        execute!(stream, Clear(ClearType::All), MoveTo( kitten / 2, (rows - 14) / 2),).unwrap();
+        stream.write(curr[0].as_bytes());
+
+        stream.execute(MoveTo(kitten / 2, (rows -10) / 2))
+            .unwrap()
+            .write(curr[1].as_bytes()).unwrap();
+
+        stream.execute(MoveTo(kitten / 2, (rows - 8) / 2))
+            .unwrap()
+            .write(curr[2].as_bytes()).unwrap();
+
+        stream.execute(MoveTo(kitten / 2, (rows - 6) / 2))
+            .unwrap()
+            .write(curr[3].as_bytes()).unwrap();
+
+        stream.execute(MoveTo(kitten / 2, (rows - 4) / 2))
+            .unwrap()
+            .write(curr[4].as_bytes()).unwrap();
+
+        stream.flush();
+        return (cols, rows);
+    }
+    else
+    {
+        (1, 120)
+    }
+}
+
+fn main()
+{
+    let  mut stream = stdout();
+    let (mut index, mut score, mut mark, mut offline) =(0, 0, 0, false);
+    let  mut screen = brian(index, &mut stream);
+
+    terminal::enable_raw_mode();
+    execute!(stream, EnableMouseCapture).unwrap();
+
+    while !offline
+    {
+        if index == RICK - 1
+        {
+            offline = true;
+        }
+        match read().unwrap()
+        {
+            Event::Mouse(event) =>
+            {
+                if event.column > 10 && event.row > 10 && event.kind == MouseEventKind::Down(MouseButton::Left)
+                {
+                    println!("You did it!");
+                }
+            },
+            Event::Key(event) =>
+            {
+                match event.code
+                {
+                    KeyCode::Char('q') | KeyCode::Esc
+                    => offline = true,
+                    KeyCode::Char('y') | KeyCode::Char('1') | KeyCode::Up    => { mark = 0 },
+
+                    KeyCode::Char('f') | KeyCode::Char('2') | KeyCode::Left  => { mark = 1 },
+
+                    KeyCode::Char('g') | KeyCode::Char('3') | KeyCode::Right => { mark = 2 },
+
+                    KeyCode::Char('v') | KeyCode::Char('4') | KeyCode::Down  => { mark = 3 },
+
+                    KeyCode::Enter | KeyCode::Pause
+                    =>{
+                        score += comment(screen, index, mark, &mut stream);
+                        index += 1;
+                        thread::sleep(Duration::from_secs(2));
+                        brian(index, &mut stream);
+                    },
+                    KeyCode::Tab | KeyCode::Char('e')
+                    => {
+                        index -= 1;
+                        score -= comment(screen, index, mark, &mut stream);
+                        brian(index, &mut stream);
+                    },  _ => {},
+                }
+            },
+            _ => {},
+        }
+    }
+
+    execute!(stream, DisableMouseCapture).unwrap();
+}
+const QUESTIONS: [[&str; 9]; RICK] =
+[
+    [
+            "1.PICK A LUCKY NUMBER MANN: "
+        ,   "1. 121"
+        ,   "2. 8"
+        ,   "3. 37"
+        ,   "4. 1000"
+        ,   " ٩꒰｡•◡•｡꒱۶ Not a bad Vibe I like you..."
+        ,   " (ᯣ_ᯣ) MID "
+        ,   " ₊˚☆ ♪(๑ᴖ◡ᴖ๑)♪ * ੈ♡ JACKPOTTTTTTT YAYAYYAYA"
+        ,   " ƪ('߸' ƪ) REVERSE JACKPOT SUCKAAAAA YOU JUST GOT PARSA-ed heheheheh"
+        ,
+
+    ],
+    [
+            "2.Where Would You look When you stuck at an elevator with other people?"
+        ,   "1. At the the buttons"
+        ,   "2. At Other people's eyeballs"
+        ,   "3. I look at the reflection of myself in the mirror"
+        ,   "4. Ground/roof Or places Like this"
+        ,   "Awwwww Social Anxiety much? >////<"
+        ,   "You are one mad man brother"
+        ,   "I guess you are even weirderer that the guy that picked 2"
+        ,   "Well normie I guess Yayyyy"
+        ,
+    ],
+    [
+            "3.What is your Favorite Evangelion Waifu?"
+        ,   "1. Dr Ritsuko Akagi"
+        ,   "2. Misto katsuragi"
+        ,   "3. Rei Anami? (i forgot)"
+        ,   "4. Asuka Lagley"
+        ,   "Yayyyy my mannnnn I knew You have a good taste (I'm lying hehehhehe)"
+        ,   "Well Standard choice hmmm?"
+        ,   "...."
+        ,   "I kinda get why but NO (._.')"
+        ,
+    ],
+    [
+            "4.Do you think I am Boring When I talk about computer stuff?"
+        ,   "1. Nooooo Parsa I love youuuu you are so cool about it ୧꒰*´꒳`*꒱૭✧"
+        ,   "2. Who the fuck are you? ฅ(ﾐ⚈ ﻌ ⚈ﾐ)ฅ"
+        ,   "3. Yeah pretty much."
+        ,   "4. I AM YOU AND I LOVE MYSELF"
+        ,   " ۶ৎ૮^ྀིᱹ ᱹ♡১ 𓂂໒ ݂. .଼ྀི𑁨ׁ♡ GIMME A HUG TWIN"
+        ,   " Ummmm ¯\\__(ᐛ )_/¯"
+        ,   " Fair ( Lemme Go cry for 2 secs )"
+        ,   " YESSSS I LOVE YOU TOOO YOU ARE AWSOME ꒰ ՞•ﻌ•՞ "
+        ,
+    ],
+];
+const SCORES: [(isize, isize, isize, isize); RICK] = [
+    ( 100,  20, 500, -100),
+    (  20, 100, -100,  0),
+    ( 200,  50,    0, 10),
+    (0, 0, 0,0),
+];
+</pre>
+</div> 
+<footer> 
+	<h3> Created by @ParsaRoidd on github!!! </h3>
+	<ul id="navi">
+		<li> <a href="https://github.com/parsaroidd" target="_blank"> Github </a> </li>
+		<li> <a href="https://parsaroidd.github.io/lemmeLiveParsa" target="_blank"> Take Ma test baby </a> </li>
+		<li> <a href="https://parsaroidd.github.io/home" target="_blank"> Go to Home page </a> </li> 
+		<li> <a href="https://parsaroidd.github.io/blog" target="_blank"> My Blog page </a> </li> 
+	</ul>
+</footer> 
