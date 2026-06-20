@@ -1,0 +1,745 @@
+<!DOCTYPE html>
+<!--
+	Stuff remains:
+	1.Having a baby.
+	2.configuring money stuff 
+	3.yandere stuff
+--> 
+<head> 
+	<title> Elahe, Version 3 </title>
+</head>
+<style>
+main { 
+        margin: auto; width: 70%; padding: 10px;
+} pre { 
+	font-size: 0.7rem; justify-content: center; align-items: center; display: flex; 
+} .row-sec { 
+	border: 10px ridge purple; padding: 10px; margin-top: 20px; overflow: scroll; height: 50%; 
+} footer { 
+	margin: auto; width: 70%; padding: 10px;
+} #core { 
+	justify-content: center; align-items: center; display: flex; border: 10px solid pink; font-size: 1.5rem; border-radius: 5em;
+} #chat-history { 
+	overflow: scroll; 
+} .mid { font-size: 0.8rem; } .small { font-size: 0.5rem; } .big { font-size: 1.2rem; ) 
+</style>
+<body> 
+	<h1 id="ge"> HELLO </h1>
+        <main>
+                <div class="row-sec">
+                        <div id="shop">
+                                <label for="shop_inn">Please select the item!!!</label>
+                                <input id="shop_inn" list="ssh">
+                                <datalist id="ssh">
+                                        <option value="Chocolate">
+                                        <option value="Eminem Relapse CD">
+                                        <option value="Pet Snake">
+                                        <option value="AK 47">
+                                        <option value="bit coin">
+
+                                </datalist> <button id="shop_btn">Buy!!!</button>
+                                <br>
+                                <p>Double-click on the box to see some suggestions!!!</p>
+                                <details>
+                                        <summary>What is this section?</summary>
+                                        <p>This is a nice GUI form to aquire your GirlFriend som offerings.All though you can do it in c
+					onsole to. for more information type help("shop"); in browser console. </p>
+                                </details><br>
+                                <dialog id="myDialog">
+                                        <p id="reaction">Hello from the dialog!</p>
+                                        <button onclick="document.getElementById('myDialog').close()">Close</button>
+                                </dialog>
+                                <button id="shop_rec">See her Reaction!!</button>
+                        </div>
+		</div>
+		<div class="row-sec">
+			<button onclick="ui('Elahe')"> See Elahe </button>
+			<button onclick="ui('Aida')"> See Aida </button>
+			<button onclick="ui('Kimiya')"> See Kimiya </button>
+			<button onclick="ui('Star')"> See Star </button>
+			<button onclick="ui('Ava')"> See Ava </button> 
+			<p> =====> </p>
+			<button onclick="ask('Elahe');">Pick Elahe</button>
+			<button onclick="ask('Aida');">Pick Aida</button>
+			<button onclick="ask('Kimiya');">Pick Kimiya</button>
+			<button onclick="ask('Star');">Pick Star</button>
+			<button onclick="ask('Ava');">Pick Ava</button>
+		</div> 
+	<div class="row-sec" id="chat-history">
+	<pre id="outt">
+	</div> 
+        </main>
+	<footer>
+	<label for="core" style="margin-bottom: 5px;"> Type Your message in the pink box below!!! AutoComplete is included!!! </label><br>
+	<input id="core"> 
+	<button id="SS"> Send Message </button>
+	<footer> 
+</body>
+<script>
+
+	const girls = [
+    {name: "Elahe", nickname: "sweetie", age: 37 , height: 1.87 , MBTI: "ISFJ", },
+    {name: "Aida", nickname: "Darling", age: 22, height: 1.60, MBTI: "ISFP", },
+    {name: "Star", nickname: "hun", age: 25, height: 1.70, MBTI: "ENTJ", },
+    {name: "Kimiya", nickname: "sugar", age:19 , height: 1.65, MBTI: "ESTP", },
+    {name: "Ava", nickname: "baby", age: 23, height: 1.80, MBTI: "ESFP", }
+
+]
+function X(arg, size) { 
+	console.log(arg); 
+	draw_msg(arg, size); 
+} 
+
+function jealousy() { 
+	const actions = ["*She brings out one of your picture* \n LOOK AT US! WE WERE SO HAPPY TOGETHER. WHAY ARE YOU \n THROWING ALL OUT?", 
+		"*She take a nearby photo of you two and rip in half* \n How COULD you?!", 
+		"*She take a look a picture of you together, and says: \n I'll Kill that bitch!!"
+		]; 
+	let txt = `
+	AHHHHHHHHHHHHhHhhHHHHhhHHHHHHHHhhhhhHHHHHhhhHHHHHHhh\n\n\n
+	${actions[Math.floor(Math.random() * actions.length)]} \n\n\n
+	${text7}`; 
+	console.log(txt); 
+	draw_msg(txt, "small"); 
+} 
+
+const Elahe = { 
+	sweet:  { 
+		activate: ["warm", "kind", "cuddles"], 
+		response: [], 
+	} , 
+
+}
+const Aida = {
+	jealousy, 
+	nickname: "Darling",  
+	phone: function() { 
+		X("GIMME THAT PHONE", "big"); 
+		X("Your Phone was taken by Aida, and its being experimentes...", "big"); 
+	}, 
+	yandere: ["Were You wouldn't say that if you were chained right now~", 
+                 `Oh! ${girls[1].nickname} You did that Again didn't you? I saw you doing this \n When you are alone...`,
+                 "You were looked so peaceful last night in your sleep..."],
+
+} 
+const Kimiya = {} 
+const Star = {} 
+const Ava = {} 
+
+
+let text1, text2, text3, text4, text5, text6, text7;
+const chatt = document.getElementById("chat-history");
+const send_msg = document.getElementById("SS"); 
+send_msg.onclick = () => { 
+	send(document.getElementById("core").value); 
+} 
+function draw_msg(msg, size) { 
+	let obj = document.createElement("pre");
+	let hed = document.createElement("hr"); 
+	obj.textContent = msg; 
+	obj.classList = size; 
+	chatt.appendChild(hed); 
+	chatt.appendChild(obj);
+} 
+var items = []; 
+var stock = ["ak 47", "ak47", "eminem", "CD", "chocolate"]; 
+
+let picker = window.prompt("What's Your name Babe? 👄"); 
+
+//if any federal agent is seeing this, this is all a joke
+let num = 0; 
+const brain = {
+  greet: {
+    activate: ["hello", "hi", "hey", "greetings", "sup", "halo"],
+	  response: [`Well greetings, Your favorite ${girls[num].name} Is here!!!`, `Heyyy ${girls[num].nickname}`, 
+		  "sup.", `HelloHi ${picker}`, "Halo"],    
+  }, 
+  jealous: { 
+    activate: ["another girl", "that girl", "that woman", "that bitch", "liked her", "loved her"],
+    response: [1, 'https://parsaylawyers.com/%D9%82%D8%A7%D9%86%D9%88%D9%86-%D9%85%D9%87%D8%B1%DB%8C%D9%87-%D8%AF%D8%B1-%D8%A8%D9%87-%D8%A7%D8%AC%D8%B1%D8%A7-%DA%AF%D8%B0%D8%A7%D8%B4%D8%AA%D9%86-%D9%85%D9%87%D8%B1%DB%8C%D9%87/']
+  },
+  hug: {
+    activate: ["hug", "embrace", "cuddle", "cuddles", "arms", "holding on", "hold"],
+    response: ["*She hugs you tightly, holding you in her arms", "*she burries you in her chest. Shhhhhh I'm here...", 
+    "I wish we could cuddle all night!!!", "*she was holding on to you, like she was afraid to let go"]
+  },
+  happy: { 
+	  activate: ["we can", "buy", "promotion", "party", "celebration", "happy", "smile", "cinema", "bluetooth"], 
+	  response: ["hhithiyyihyihihih really? YOU REALLY DO IT FOR ME?", `awwwwww ${girls[num].nickname} that's really sweet...`,] 
+  },
+  love: {
+    activate: ["love", "luv", "adore"], 
+    response: [`Awwww I love you too ${picker}`, `Mmmmmmm ${girls[num].name} Loves you too ${girls[num].nickname}`, 
+	    `${girls[num].name}'s heart  beats for you My love <3`],
+  }, 
+  gift: { 
+	  activate: ["bought", "for you", "gift", "present", "suprise"], 
+	  response: [`Awwwwww ${picker} I CAN'T BELIEVE YOU BOUGHT THIS FOR MEEEE`, `${girls[num].nickname}... I never forget this.`,  "yoouououoyououo thank youuuu thank youuu smmmmmm"], 
+  }, 
+}
+
+
+
+const generic = [
+	"Well, what do you think about having mac& cheese tonight?", 
+	"You are so dramatic netflix can make a whole series out of you *(cringe refrence to prev ver.);", 
+	"Babe I'm listening to Eminem shut up", 
+	`*${girls[num].name} Shoves you in her boobs "Just shut up" ${picker}`, 
+]; 
+
+
+const client = [];
+const AllSheWrote = [];
+let count;
+
+let elhae = 
+`
+ _____ _       _
+| ____| | __ _| |__   ___
+|  _| | |/ _  | '_ \ / _ \
+| |___| | (_| | | | |  __/
+|_____|_|\__,_|_| |_|\___|
+
+`
+let picked = null;
+let outt = document.getElementById("outt"); 
+
+function ask(girl) {
+
+	switch(true){
+		case girl == "1" || girl == "Elahe":
+			picked = "Elahe";
+	   client.push(girls[0]);
+			draw_msg(`client: ${picker} user: ${picked}`, "big");
+			console.log(`client: ${picker} user: ${picked}`);
+			num = 0; 
+			break;
+ 		case girl == "2" || girl == "Aida":
+			picked = "Aida";
+            client.push(girls[1])
+			draw_msg(`client: ${picker} user: ${picked}`, "big");
+			console.log(`client: ${picker} user: ${picked}`);
+			num = 1; 
+			break;
+		case girl == "3" || girl == "Star":
+			picked = "Star";
+            client.push(girls[2])
+			draw_msg(`client: ${picker} user: ${picked}`, "big");
+			console.log(`client: ${picker} user: ${picked}`);
+			num = 2; 
+			break;
+		case girl == "4" || girl == "Kimiya":
+			picked = "Kimiya";
+            client.push(girls[3])
+			draw_msg(`client: ${picker} user: ${picked}`, "big");
+			console.log(`client: ${picker} user: ${picked}`);
+			num = 3; 
+			break;
+		case girl == "5" || girl == "Ava":
+			picked = "Ava";
+            client.push(girls[4])
+			draw_msg(`client: ${picker} user: ${picked}`, "big");
+			console.log(`client: ${picker} user: ${picked}`);
+			num = 4; 
+			break;
+		default:
+			alert("Such a shame... I went on all this and you can't type a few character? :((( (mind the first letter of names are capital)");
+			break;
+}};
+const des1 = `One and only, the star of this project. ELAHE. \n
+HER MBTI IS ISFJ. what more do you want my friend?:) \n
+She is a History Teacher in a non-goverment funded school, because why not.\n
+She is looking for someone to hold her hand during this non preventable push to despair that we Experince untill death  \n
+She ALWAYS believed those America's got talent DeepFakes with all of her heart, innocently`; 
+
+const des2 = `Well this is our gal, Aida. She is a Art student, Because she tought Being a photographer is easy, \n 
+You just pick up ur phone and *flick* and put a black-white filter on it. RIGHT? \n And Well that smells like ISFP`; 
+
+const des3 = `Star is your local StarBucks waitress, she consults Divorced people, \n and if someone else wants advice, she makes them divorced first then offers her advice. \n She is slowly destroying the world with a *Good Vibes only* T-shirt`; 
+
+const des4 = `I wouldn't pick of her if I was you, but I wrote this and you are reading it,\n So I'm not you. Nothing can stop her at her new job with a *GIRLBOSS* mug. \n She just discovered that by pressing Meta + V you can open clipboard on windows,\n and with this new knowledge, she will create the next best startup. \n Totally not inspired by the reason i started this program`;
+
+const des5 = `Who really made it this far? Well it's like this gals life. \n on one pays attention to her. Even i dunno wtf happend in her past. She is Ava, She is really tall, 1.80CM, and she is a reckless ESTP`;
+
+function ui(arg){
+        switch(true){
+                case arg == "start":
+			console.log("%c\n\tWELCOME TO ELAHE 3.0 (eng ver.) \n\t Like Always, We got hot girls for you <3", "font-size: 2rem; color: purple;");
+			console.log(elhae);
+			console.log(`%c\nHow about starting with`, "font-size: 1.5rem; background-color: purple; color: white;");
+			console.log("%cui('Elahe');", "font-family: monospace; font-size: 1.5rem; color: purple; background-color: black;"); 
+			console.log(`%cWell you can type ane girl you want, i think browser have a limit for character display, so I can't show all character at once, I include a list, type each one to see a pic and a story!!! \n
+			\n1.ui("Elahe"); 
+			\n2.ui("Aida"); 
+			\n3.ui("Star"); 
+			\n4.ui("Kimiya"); 
+			\n5.ui("Ava"); 
+			\nDont forget that first letter of all this beatiful names are upper case :))
+				`, "color: blueviolet; font-size: 1.3rem"); 
+            break;
+            case arg == "1" || arg == "Elahe":
+			draw_msg(`\n ${des1}`, "mid"); 
+			draw_msg(`\n\n ${text1}`, "small"); 
+                        console.log(`\n ${des1} \n\n ${text1}`);
+                break;
+                case arg == "2" || arg == "Aida":
+			draw_msg(`\n ${des2}`, "mid");
+			draw_msg(`\n\n ${text2}`, "small");
+                        console.log(`\n ${des2} \n\n ${text2}`);
+                break;
+                case arg == "3" || arg == "Star":
+			draw_msg(`\n ${des3}`, "mid");
+			draw_msg(`\n\n ${text3}`, "small");
+			console.log(`\n ${des3} \n\n ${text3}`);
+                break;
+                case arg == "4" || arg == "Kimiya":
+			draw_msg(`\n ${des4}`, "mid");
+			draw_msg(`\n\n ${text4}`, "small");
+			console.log(`\n ${des4} \n\n ${text4}`);
+                break;
+                case arg == "5" || arg == "Ava":
+			draw_msg(`\n ${des5}`, "mid");
+			draw_msg(`\n\n ${text5}`, "small");
+			console.log(`\n ${des5} \n\n ${text5}`);
+                break;
+                case arg == "pick by prefrences" || arg == "pbp" || arg == "PBP":
+                        ask(namm);
+                break;
+                default:
+			console.log(`%cI know you are the best among of of this characters, but please type something that i can understand, I don't wanna live you empty handed, here is Elahe: \n\n ${text1}`, "font-size: 1.3rem; color: red;"); 
+
+
+        }};
+
+//I couldn't right this ugly part, but i learned it!!! 
+function send(chat) {
+	let outt = document.getElementById("outt"); 
+	if (picked !== null) {
+		const low = chat.toLowerCase();
+		for (const index of Object.values(brain)) {
+			if (Array.isArray(index.activate) && index.activate.some(dai => low.includes(dai.toLowerCase()))) {
+				draw_msg(index.response[Math.floor(Math.random() * index.response.length)], "big");
+				return index.response[Math.floor(Math.random() * index.response.length)]; 
+			}}
+		        draw_msg(generic[Math.floor(Math.random() * generic.length)], "big"); 
+			return generic[Math.floor(Math.random() * generic.length)]
+		} else {
+			draw_msg("YOU HAVEN'T PICKED YOUR GIRLLLLLIE", "big"); 
+		}
+}
+
+
+// special juicy functions!!!
+function see(anotherWoman){
+	if (anotherWoman == "another girl" || anotherWoman == "another woman") {
+		window.location.href = 'https://parsaylawyers.com/%D9%82%D8%A7%D9%86%D9%88%D9%86-%D9%85%D9%87%D8%B1%DB%8C%D9%87-%D8%AF%D8%B1-%D8%A8%D9%87-%D8%A7%D8%AC%D8%B1%D8%A7-%DA%AF%D8%B0%D8%A7%D8%B4%D8%AA%D9%86-%D9%85%D9%87%D8%B1%DB%8C%D9%87/'
+}}
+
+//creating first object: money; 
+const Money =
+{ 
+	amount: 2700, 
+
+	pricing: function pricing() { 
+		return Math.floor(Math.random() * 1700); 
+	},
+
+//	debt: debt_check()
+// 	{ 
+//		if (Money.amount < 0){ return 0; } 
+//		else { return 1; } 
+//	},
+
+	get:
+	{ 
+		lottery: function buy_ticket() 
+		{
+			let price = Money.pricing; 
+			let choice = window.prompt(`buy ticket for ${price}? [y/n]`); 
+			if (choice == "y")
+			{ 
+				let numm = Math.floor(Math.random() * 120); 
+				console.log(`your ticket is ${numm}.`); 
+				if (numm == 37)
+				{ 
+					console.log("YOU WONNNNNN!!!!!!!"); 
+					Money.amount += 5000; 
+				} else { console.log("YOU LOST HSHHAHAHAAHAHA"); } 
+			}
+
+		}, 
+		gfgf: function get_it_from_gf() {}, 
+		pary: function pary() {}, 
+		laon: function loan() {}, 
+	},
+}; 
+function shop(item){ 
+	ITEM = item.toLowerCase(); 
+	if (stock.includes(ITEM)) { 
+		stock.push(item);
+		console.log(`${brain.gift.response[Math.floor(Math.random() * brain.gift.response.length)]}`); 
+	} 
+		 
+} 
+function shop_gui()
+{
+	let input = document.getElementById("shop_inn").value;
+	let item = input.toLowerCase(); 
+	if (stock.includes(input.toLowerCase())) { 
+		items.push(item);
+		console.log(`${brain.gift.response[Math.floor(Math.random() * brain.gift.response.length)]}`);
+	} else { 
+		let p00 = window.confirm("This item is not in the shop, add it?"); 
+		if (p00 == true) { 
+			stock.push(item.toLowerCase()); 
+		} else { 
+			return  
+		} 
+	} 
+
+
+}
+document.getElementById("shop_btn").onclick = shop_gui;
+
+function shop_rec() { 
+	let text = document.getElementById("reaction"); 
+	if (items.length > 0) { 
+		text.textContent = `reaction for ${items[Math.floor(Math.random() * items.length)]}: 
+		${brain.gift.response[Math.floor(Math.random() * brain.gift.response.length)]}`; 
+	} else { 
+		text.textContent = "YOU DIDN'T BUY HER ANYTHING DON'T LIE TO ME"; 
+	} 
+	document.getElementById('myDialog').showModal();
+} 
+document.getElementById("shop_rec").onclick = shop_rec; 
+
+text1= `
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@###SSS####@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@###SSS%%%%%%SSS###@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@###S#@##SSS%%?????%%%%%S#@@@@@@@@@@@@@@@@@@@@@@@@@
+@@@@@@@@@@@@@@@@@@@@@@@@@@@#S%%SS####@#S%%%%?*****??**?%S@@@@@@@@@@@@@@@@@@@@@@@
+@@@@@@@@@@@@@@@@@@@@@@@@@@S??%S######S#SSS%??**++;;+++;+*?S#@@@@@@@@@@@@@@@@@@@@
+@@@@@@@@@@@@@@@@@@@@@@@@#%*?%SSSSSSSS%S%%%%%%*++;;;;;;;;;+*?#@@@@@@@@@@@@@@@@@@@
+@@@@@@@@@@@@@@@@@@@@@##S?*?%%%%%%%%%%%??????%??*+;;;;+++++**?#@@@@@@@@@@@@@@@@@@
+@@@@@@@@@@@@@@@@@@@###%*+?%??*????%????**********+;;;++****?*?#@@@@@@@@@@@@@@@@@        
+@@@@@@@@@@@@@@@@@@###%*+*%?*******??****+++++++++*+;;;++***???%##@@@@@@@@@@@@@@@        
+@@@@@@@@@@@@@@@@@@@#S*++??***++++++**+++;;;;;;+;;+*+;;++***???%S####@@@@@@@@@@@@        
+@@@@@@@@@@@@@@@@@@##?++*?*+++++;;;+++;;;;:;::::::+***+++*?????%%%%%S##@@@@@@@@@@        
+@@@@@@@@@@@@@@@@@@@#**+???**+++;;;;;;;;;;;;;;;;;+++*******??%%%%??%S###@@@@@@@@@        
+@@@@@@@@@@@@@@@@@@@%**+?***++++++;;;;+;;;;;+++*?+;;+**???????%%%%%%SSS###@@@@@@@        
+@@@@@@@@@@@@@@@@@@@?***SS???++++;;;;;+++;;;;+?%?+;;+*+*??%???%%S%*???SS###@@@#S#        
+@@@@@@@@@@@@@@@@@@@%?**%%**%%++;:::;*?*%SS%?*+;;++++?****?%%%%%%?****?%S#@@@@#%#        
+@@@####@@@@@@@@@@@@#%*+**++++++;::::++++*****;::;+++??**???%SSS%*??%???S#@@@@#%S        
+@@@######@@@@@@@@@@@%*++;;;;++;:::::::;;::::::::;+++*???*???%%S%?*?%%??S##@@@#?S        
+@@@######@@@@@@@@@@@S*++;;;+;::::::::::::::::::;;;+******??%%%S%?**%%??%##@@@#?S        
+@@@######@@@@@@@@@@@#*++;;+*+;;;;;::::::::::::;;;++**+**++*??%S%?*?%%?*%#@@@@#?%        
+@@@######@@@@@@@@@@@#*;++;;++;;;;::::::::::::;;;+++*+++++*++*?%%?*?%S**%#@@@@#?%        
+@@########@@@@@@@@@@@?;**++**+;::::::::::::::;;;+++???******???%***%S**S##@@@#??        
+##########@@@@@@@@@@@%;*%+*??**+++;::::::::::;;+++*?*****??%????*+*?%*?###@@@#??        
+##########@@@@#@@@@@@S++%%*****++++;::::::::;;+++******??%??????***?%*?###@@@#?*        
+##########@@###@@@@@@S*+?%%++;;;;:::::::;;;+++*++*****?%%%%?????**??%*?###@@@#*+        
+##@@@@@########@@@@@@#?+*???+;::::::;;;++++++++*****??%%%%%?????*???%*?##@@@##%?        
+####@@@##@######@@@@@#%**?+*?****+++++++;;;+++****???%%%%????**?*%???+*###@@@@#%        
+###@@@@##@######@@@@@#S?**+++*+?%*++++++;++*****???%%%%%??**?*???S%%%?%S##@@###%        
+####@@@##@######@@@@@#@%?*++*++?%**+++++**?**?????%%%?????****??%#S%S%#@@SSS#S%%        
+#####@@##@######@@@@@@@#?*+++++*?*****???????????%%%%????******?S###SS##%%@SS#?*        
+S##@@@@##@#######@@@@@@#?**++;+?????%???********?%%??%???*++***?S#####SS#@@@@#?*        
+??###@@@#########@@@@@@S*++++*??????**+++++++++++?%**??*?+++***?S@@@@@@@@@@@@#?*        
+%%%SSSS###########@@@@@%++**???***++;;;;;;;;;;;;+*?*+*?**++++**?%@@@@@@@@@@@@@?*        
+%%%%SS#@##@@@@##@@@@@@S**??%%?***+;;::::::::;;;;;;**++*?**+++**?%@@@@@@@@@@@@S**        
+SS###@#@@@@@@@@#@@@@#%*??%S%***+;;:::::::::::;;;;;*++++?*++++**?%#@@@@@@@@@@@%*+        
+##@@@@#@@@@@@@@@@#S%????%S%**++;;::::,,,,::::;;;;;+++++*?*+++**?%S####@@@@@@@S**        
+##########SSSS%%%?????%SS?****;;;::::,,,,:::::;;;;++++++?*+++**?%S#######@@@@@?*        
+SS%%???**+***??????%%%S#?**+?*+;;::::,,,,:::::;;;;++++++**+++***%S#######@@@@@?+        
+SS%%%??*+++**????%%%%%S?**+*?*+;;:::::,,,,:::::;;+++++++*?+++**?%S######@@@@@S?*        
+%%?**++++++**????????S?*+*+*?*+;;:::::,,,,:::::;;+++++++*?+++*???S####@@@@#%%???        
+;::::::::;;++*******%%*++*++**+;;;:::::,,,::::::;;++++++??*++*???S#@@@@@#S%?????        
+:::::::::;;;+******?%*++*++++*+;;;::::::,,:::::::;+*++++?%?*+*???S##@@@@S??????*        
+:::::::::::;;;;;;+*%*++**;;;+*+;;;:::::::::::::::;;*+++*%%??+**?%S##@@@@#%%?????        
+:::::::::::::::,:::;+++*+;;;;*++;;;::::::::::::::;;++++*S%??**??%%S#####@#S%%%%?        
+::::::::::::::,,,,,:+++++++;;+*+;;;::::::::::::::;++++*?%%???*????????%%%%%%%%%%        
+::::;:::::::::::,,,:++;;+++::;++;;;;::::::::::::;;++++*?%%????????????????%%%%%%        
+:::;:;::::::::::::::;;:+++;:,,;++;;;;:::::::::::;;++++?%%%?????%???%%%%%%%%%%%%%        
+::::;;::::::::,:::::;;:;+;;,,,;++;;;;:::::::::::;;+**?%%%%?????????%%%%%%%%%%%%%`
+
+text2= `
+:::,,,,,,,,,,,,,:::::+S########SSSSS%%%%%%%%%%%%SS##########@@@######S%++;;;;;;;
+::,,,,,,,,,,,,,::::;?##############SSSS%%%%%%%SSS############@@@######S%*;;;;;;;  
+::,,,,,,,,,,,,,:::+S################SSSSSS%%%%S###############@@@######S%*;;;;;;  
+::,,,,,,,,,,,,:::*S#@###############S###SS%%%SS############@@##@@###SSSS%?+;;;;;  
+:,,,,,,,,,,,,:::?#@@#####################SSS%SS#########@##@###@@@##SSSS%??+;;;;  
+,,,,,,,,,,,,::;%#@@#######################SS%%SSS########@#@@@@@@@##SSSS%%?*+;;;  
+,,,,,,,,,,,::;%#@@#########################S%%S%SS#########@@##@@##SS%%%%%??*+;;  
+,,,,,,,,,,,:;%#@@#################@######S%%SSSSSSSSSSS############S%%%%%%%?*++;  
+,,,,,,,,,,:;%#@@#####@##########@@#####S%%SSSSSSS%%%%%SSSS#########S%%%%%S%%?+++  
+,,,,,,,,,::?#@@####@@##@@#####@@@@#@#S%%SS%%%%%%%SSS%%%%S%SSS%SSSSS#SS%SSSSS%*++  
+,,,,,,,,::*#@@@###@@#@@@###@@@@@@@#S%%SS%???%%%%S##SSSSSSS%%%%%%%SS###SSS###%?++  
+,,,,,,,::;S#@@##@#@#@@@##@@@@@@@#SSSS%?***???%%%S##S##SSS#S%%%%?%S#@########S%++  
+,,,,,,,::*#@@##@@@@@@@###@@@@@@#SSS%?****????%%S##S##SS###SSSS%%S##@########S%*+  
+,,,,,,:::%#@@#@@@@@@@##@@@@@@@##S%*++++*?????%S######S###S##S%%%S##@#########S++  
+,,,,,,::;##@@#@@@@@@#@@@@@@###S%%%%?*++*?????%###S##SS#S#S#SS%?%S#@@#########%*+  
+,,,,,:::*#@@##@@@@@#@@@@@@@##S?**?%%%???*???%S#####SS##SSS#S%%?%S#@##@#######S*+  
+::::::;;?#@@#@@@@@@@@@@##@#@@#%%?**?%%%%???%S######SS#S#S#SS%??%##@##@#######S++  
+;;;;;+++%@@@#@@@@@@@@@SSSSSSS%???%%??%%%%%%%S#########S###S%???S#@@#@@@######S++  
+;;+++++*%@@@#@@@@@@@#S?**??%%%%??%S%%?????%%#############S%%?*%##@@#@@@######S++  
+++++++**%@@@@@@@@@@@S?*++++**?????%????***??SS############SSS%S#@@@@@@@##@###%++  
+*******?S@@@@@@@@@@#%?*+;;;;;+++****?***+**?%%SSSSSSSSS##S%%%S##@@@@@@@@@@###%++  
++*****?%#@@@@@@@@@##%?*+;;;;;;;+++*****++++???%S###S??%SSS%%%S#@@@@@@@@@@@###%++  
++++++*%##@@@@@@@@@#S%?*+;;;;;;;++****+;;;;+*???%%%%?***%S##SS##@@@@@@@@@@@###?++  
+++;;++*S#@@@@@@@@##S%?*++;;;;;+*****++;::;++****??????%%%%?%S#@@@@@@@@@@@@#@#?++  
+;;;;;;++%@@@@@@@@##S%?*++;;;;+*?**?*+;::;;;;;+++++*********%S#@@@@@@@@@@@@#@#*++  
+;:;;;;;;+?@@@@@####S%?**++;;;*??***+;:::;;;;;;;;;;;;;;;;++*%#@@@@@@@@@@@@###S*++  
+:::::;;;;+?@@@@####S%?**++;+**?????+;;:;;;+;;;;;;;;;;;;;++*#@@@@@@@@@@@@@#@#S*++  
+:::::;:;;;+%@@@####S%%?**++***???????***+;;;;;;;;;;;;;;;+?#@@@@@@@@@@@@@##@#%+++  
+::::::::;;++%@@#####S%%???*??????????**+;:;;;;;;;;;;;;+*%@@@@@@@@@@@@@####@#?+++  
+::::::::;;;+*S@@####SS%%%SSSSSS%??**+;:::::;;;;;;;;;++?#@@@@@@@@@@@@@@######**++  
+:::::::::;;++*#@#####SS%%%%SSSSSSS%%%?+;;;;;;;;;;+++*S@@@@@@@@@##@@@#####@#S**++  
+::::::::::;;++%@@#####SS%%%%S%%%%??%%SS?++;;;;;;+*?S@@@@@@@@@@@###@######@SS**++  
+::::::::::;;;+*#@######S%%%%%%%%%%????**+++;;+*?S#@@@@@@@@@@@@@@####S####@SS**++  
+:::::::::::;;++%###S####S%???????????*++++*?%S#@@@@@@@@@@@@@@#######S####@SS***+  
+:::::::::::;;;+*#######@##%%??**+++++**?S#@@@@@@@@@@@@@@@@@@@@#####SS#####%S***+  
+:::::::::::;;;++%#######@@#SS%%%????%S#@@@@@@@@@@@@@@@@@@@@@#@##S##SS###@#%S****  
+::::::::::::;;;+?########@@#SSSSSS##@@@@@@@@@@@@@@@@@@@@@@@@#@##SSSS######%%?***  
+::::::::::::;;;;+S######SS###SSSS###@@@@@@@@@@@@@@@@@@@@@@@@###SSSSS####@#%%?***  
+::::::::::::;;;;+?##@###SSSSS%SSS##@@@@@@@@@@@@@@@@@@@@@@@@@####SSSS####@#%%%***  
+:::::::::::::;;;;*##@#S#S#SSS%%SSS#@@@@@@@@@@@@@@@@@@@@@@@@@####SS##@###@@%%%***  
+:::::::::::::;;;;+%##@##SSSSS%?SSS#@@@@@@@@@@@@@@@@@@@@@@@@@####SS##@@##@@S?%***  
+::::::::::::::;;;;*##@#S#SSSSS?%SS#@@@@@@@@@@@@@@@@@@@@@@@@#####SS#@@@@@#@#%%***  
+:::::::::::::::;;;+SS##S#SSSSS%%SSS#@@@@@@@@@@@@@@@@@@@@@@@@#@###S#@@@@@@@#%%?**  
+:::::::::::::::;;;;?##@#S###SSS%%SS#@@@@@@@@@@@@@@@@@@@@@@@@#######@@@@@@@@S%%**  
+;::::::::::::::;;;;*SS##S####SSS%SS##@@@@@@@@@@@@@@@@@@@@@@@@@####@@@@@@@@@#%%?*  
+;:::::::::::::::;;;+%##@######SS%SSS#@@@@@@@@@@@@@@@@@@@@@@@@#####@@@@#@@@@#S%?*  
+;::::::::::::::::;;;?#####@####S%SSS#@@@@@@@@@@@@@@@@@@@@@@@@#####@@@@#@@@@#S%%*  
+;;:::::::::::::::;;;+###@##@#@#S%SSSS#@@@@@@@@@@@@@@@@@@@@@##@@###@#@@#@@@@#S%%?  
+;;;::::::::::::::;;;;%#######@##%%SS%#@@@@@@@@@@@@@@@@@@@@@##@@##@#@@@@@@@@#S%%?  
+;;;:::::::::::::::;;;*###@##@@@#%%SS%#@@@@@@@@@@@@@@@@@@@@@#@@#@@@@@@@@@@@@#S%%?`
+
+text3=`
+%%%%%%%%%%SSSS?******************+******+?SSSS%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%SSS?+***********+**??%%S%%%%%%SS%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%      
+%?%%%%%%%%%%%SSS?+*********?%S##SS%%SS%%%????%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%      
+???%%%%%%%%??%%SS?+++****?S###SS%*?SSSS%%??****?%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%      
+???%???????%%??%%%**?%%%SSSS%???++?SS%%%??**+++*?%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%      
+???????????S%+**+*%SSS%%%?******++*%%%???*+++;++?%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%      
+???????????S%+++?##%???*?*+*??*+*?*+*?*+;;++*+++?%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%      
+???????????%S??%@#?************++**+;;;+*??%%%????%S%?%%%%?%%%%%%%%%%%%%%%%%%%%%      
+???????????%S%%#@?*++?%?++;;;;+;;;;;;;++**??*+*?%S##%%%?%%??%??????%%?????%%%?%?      
+????????????SS%@@%*++%%+;;;;:::;;;;;;;+++*+;;+??%%%S%???????????????????????????      
+????????????%#%S##?++%?+;;;::::::;;;;;;;;+*????%%?**????????????????????????????      
+?????????????%%%%SS?*%?;;;:::::::,::;;;+++***?%%%%%%?*??????????????????????????      
+??????????????%#S%SS%%*;;:::::::,,,::;;;*+;;;*%%SSS%?**?%???????????????????????      
+??????????????%SSSSS##?+;::;;;;;;:::::::+;;++*?%%SSS***?%???????????????????????      
+??????????????%#SS%S@@%?+;:;;+++;;;;:::;;;++++++*?SS*+**%???????????????????????      
+??????????????%#SS%%S##??+:::+**%?*;:::;;;++++++;+??***+*???????????????????????      
+###SSSSSSSSSS%%@S???%@@?*+:,,;;;+;:,:::;++++;;;;;++;*?*++*%SSSSSSSSSSSSSSSSSSSSS      
+####SSSSSSS%%%S@S?**?@#*+;:::::::::::;;;;++;:::;****?***+*?S#####@@@@@@@@@@@@@@@      
+#########SSSSS#S%???%@#*+;:::::::::::;;;;;;+;;*%??????*+***?S#@##@@@@@@@@@@@@@@@      
+###############S????%#@?;::::::::::::::;;;+*;:+S??%%??*+*%*?%S@@@@@@@@####@@@@@@      
+###########SSS#S*???%S@%;;:::::::::::::::;+;;+*?%?%%??++?%%%%S#@@@@@@@####@@@@@@      
+##############SS?****%S@?*;;::::::::::::;++:;*%S%???**++?%%%%SS#@@@@@#####@@@@@@      
+##############S#S%?**?%@#%**+;;:::::::;;;;::;*?%%?***++*?%%?*%############@@@@@@      
+###########S##SS#%%%%%%S@#*+;;::::::;;;;::::;+*???+;;+*?%%?***S###########@@@@@@      
+@@#########SSSSS#S%%%%%%S@?::,,:::;+++;:::::;**???*+++??%?***?*%S#########@@@@@@      
+@@########SSSSSS#S%%%%%%?%S*;;;+*???*+;:::::+*********??%**?*%?*%#####S###@@@@@#      
+@###SSS#SSSSSSSSSS%%%%???%%??%?%???***;;::;+**++*??*????*+***?%?%S####S###@@@@##      
+@@##SSS#SSSS%SSSSS%%%???%%??%%%?++?++?+++**++;+++*%%???*+*?+;*%?%#S###S###@@@@##      
+@@##SSSSSSS%%%%%SS%%??????%%????*?%*+%***+;;;;;++*??**?*+**?*?%S%SS##SS###@@@@##      
+###SSSSSSS%%%%%SS%%?????+?%**?%?*++++++++;;;;;;;;+*;;+++****??%%%SSSSSSSS###@@##      
+###SSSSSSS%%%%%%S%%????%%S#S%*+;;;;;;;;;;;;;;;;;;;+:+**++***%??%SS%SSSSSS#######      
+##SSS%SSS%%%????%S%????S###*;;:::::::::::::::;;;;;++*?%*+*++*?*?%S%SSSSSS#######      
+##SSS%%SS%%?????%S%????#@#*;:::::::::::::::::::;;;+***%?+++;+**?%%%SSSSS########      
+###S%%%S%%%??????S????%@@?;::::,,,,::::::::::::;;;;***?***++**?**%SSS##S########      
+###S%%%S%%??***??S%%??#@#+::::,,,,,,,:::::::::::;;;***+;+***??%%*?%S##SS########      
+##SS%%%S%??****+?#%%%%@@S;:::,,,,,,,,:::::::::::;;;**++;;*??%%%SSSSSSSSS########      
+###S%SSSS%%%??*?%#%%%S@@?;::,,,,,,,,::::::::::::;:;**+*++**?%%%%%%%#SSSS###@@@@@      
+###SSSSS%%%???*++S%%%#@@*:::,,,,,,,,::::::::::::::;*****+*++*??%?*+%S##S##@@@@@@      
+###SSSS%%%???**+*#%%S@@S;::,,,,,,,,,,:::::::::::::;***?***+;+**%S?*?S#####@@@@@@      
+###SSSSSSS%%%%%%S#SS#@@%;::,,,,,,,,,,::::::::::::::***???**???*?##%%SS#####@@@@@      
+###SSSSS%%%?????%#S#@@@*;::,,,,,,,,,:::;;::::::::::*?*+??*%%??*+*%S%%######@@@@@      
+@##SSS%%%%?????*?##@@##+:::,,,,,,,,:::;;:::::::::::*?*++*+?%?++++?%?S#####@@@@@@      
+###SSSSSS%%%%???%@@@##S;:::,,,,,,,,::;+:::::::::::;*?*++;;+?*+*?%%%#######@@@@@@      
+###SSSS#S%%%%%%S@@@#%S%;:::,,,,,,,:::+:,::::::::::;*?+++;;+*?%%%S#SS######@#####      
+###SSSSSSS%%%%%#@@@@@@*;::,,,,,,,,::;+::::::::::::+?*+++++*+?%SSSS%#@#####@#####      
+###SSS##SSS####@@@@@@#+:::,,,,,,,,::;;::::::;::::;??+++++*++?%SSS?%@@#####@##@##      
+###S#S####@@@@@@@@@@@#?;::,,,,,,,::;+:::::::::::;*?*++*****%??%S#%S#@#####@@####      
+########@@@@@@@@@@#@@@@S?;:;++++:,:;+:::::::::;;*??+++*%S#S*+%#@@###@#####@@#@##      
+#######@@@@@@###@###@@@@@#S#####*+*S#*+*+:::;;+?%%SSS#@@@@%%S@@#@@##@####@@@@@##      
+######@@@@@@#@@@@####@@@@#@#@##@##@@@@@@@%?%S##@@@@@@@@@@@##@@@@@@@#@####@@@@@@#`
+
+text4=`
+?????************++++++++++++++++++++++++++++++;,,,,,,:,;*********************?*
+??????***********+++++++++++++++++++++*+++******+++****:;*******************?*?*
+?????************++++++++++*??**?????????????****???***:;*******************???+
+????????????????*::;:::::::%%%???????***???********?:,;;+?*****************????+
+?????????????????+:;:,,,,,:*+***??????????????******:,:;+????***??*****????????:
+?????????????????+:;:,,,:+*+;;;;;+**?????????????*??;:;;*?????***??????????????:
+?????????????????+:;:,,:*???*;;;*??**????????????*????%+;;;*???**??????????????:
+???????????????%?*;;:,:*???%%%**????**????????*??**????+:;;???????????????????*:
+?%%%%%???????%%%%*;;:,;%%%%%%?%**????**???????????*????;:;;???????????????????*,
+%%%%%%%%%%%%?%%%%*;;:,*???%??**++??%%??????????????????:*?????????????????????*,
+%%%%%%%%%%%%%%%%%*;;,+%%S?*+*++++**%S%??****?%%%??????%:?%%??????????????%%???*,        
+%%%%%%%%%%%%%%%%%*;;:*%%#%+++++;+;+%S%%?*?%%%?%???????%:?%???????????????%%%??+,        
+%%%%%%%%%%%%%%%%%*;;:?%SS#%++**+;+?%S%%**+*?%?????????%:?%???????????????%%%??+,        
+%%%%%%%%%%%%%%%%%?;;;*%%SSS%*+++*%%SSS%???+*++????????%:?%????????????????%???+,        
+%%%%%%%%%%%%%%%%%?+;:;*%%%S%?????%?S%???****?;;???????%:?%%??????????????%????;,        
+%%%%%%%%%%%%%%%%%*:,+;:;*%?*****??**+;;**+++;;:;????%%%:?%%%%%%??%%??????????%;,        
+%%%%%%%%%%%%%%%%%;::*:::;+?*++**++;;;;+*++;;;;:::??%%%%:?%%%%%%%%%%?%%%??????%;,        
+%%%%%%%%%%%%%%%S+::*??****??????????????*+;;;;:::+?%%%%:?%%%%%%%%%??%%%%?%%%?%;,        
+%%%%%%%%%%%%%%%%+;*??%%%SSSSSSSSSS%%%?????*+;+++*+*%%%?:%%%%%%%%%%%%%%%%?%%%%%::        
+%%%S%%%%%%%%%%%%;*?%%%%SSSSSSSSSSSS%%%%%%???*++++::*%%?:%%%%%%%%%%%%%%%%%%%%%%::        
+%%SS%%%%%%S%%%%%;%%SSSSSSSSSSSS####SSSSSS%%%%;;;;;::+%?:%%%%%%%%%%%%%%%%%%%%%%::        
+%%SS%%S%%S%%%%S*+%SSS####SSS?*%####S##SSSSSSS+;;;;;::??:%%%%%%%%%%%%%%%%%%%%+;::        
+%%%%%%%%%%%%%S?:;*SS###S####S%S####S##SSSSSSS?;;;;;::%?;%%%%%%%%%%%%%%%%%%%%;,,:        
+%%%%%%%%%%%%%%;::;*%S###################SSSS%S?+;;;;*%%*%%%%%%%%%%%%%%%%%%%%;:::        
+%%%%%%%%%%%%%%+::;;*S#####################S%%%SS%???%%%+%%%%%%%%%%%%%%%%%%%%::::        
+%%%%%%%%%%%%%%*:;;++%#####################S%%%%%%%%%%%%*%%%%%%%%%%%%%%%%%%%%;;::        
+%%%%%%%%%%%%%%?;;;+***?%SSS############SS?+:+S%%%%%%%%S%%%%%%%%%%%%%%%%%%%%%%?*:        
+%%%%%%%%%%%%%%%%?+?%*+;:;;++*???????**+;:,,:+%%%%%%%%%S%%%%%%%%%%%%%%%%%%%%%%?*:        
+%%%%%%%%%%%%%%%%%%%????*++;;;:;;;;::::;;;;+++?%%%%%%%%S%%%%%%%%%%%%%%%%%%%%%%??:        
+%%%%%%%%%%%%%%%%%%%%??%%%%%%%%%?????????%?***?%%%%%%%S%?%%%%%%%%%%%%%%%%%%%%%**:        
+%%%%%%%%%%%%%%%%%%SSSSS%%%??%%%SS%??????%%%%%?%%%%%%%S**S%%%%%%%%%%%%%%%%%%%%+*,        
+%%%%%%%%%%%%%%%%%%SSSSSSSSS%%%%%%?%%%SSSSSS%%%%%%%%%%S+*%%%%%%%%%%%%%%%%%%%%%+;,        
+%%%%%%%%%%%%%%%%%%%%%SSSSSSSSSSSSSSSSSSSSSS%%%%+?%%%%S*?%%%%%%%%%%%%%%%%%%%%%:::        
+?%%%%%%%%%%%%%%%%%%%%%%SSSSSSSSSSSSSS%SSSSS%%%S;;%%%%S*?S%%%%%%%%%%%%%%%%%%%%*;:        
+;+%%%%%%%%%%%%%%%%%%%%%%%SSSSSS%SSSSSSSSSSS%%%%:+%%%%%*+++%%%%%%%%%%%%%%%%%%?+;:        
+;;%%%%%%%%%%%%%%%%%%%%%%SSSSSSSSSSSSSS%%%%%%%%?:?%%%%%*;::%%%%%%%%%%%%%%%%%%?+;:        
+;;%%%%%%%%%%%%%%%%%%%%%%%SSSSSSSSSSSSSSSS%%%%%*:?%%%%%*;::%%%%%%%%%%%%%%%%%%?+;;        
+?%%%%%%%%%%%%%%%%%%%SS%%SSSSSSS#SSSSSSSSSS%%%%+;%%%??%?*??%%%%%%%%%%%%%%%%??*+;;        
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%???????????????%;;%%S+;++%S%%%%%%%%%%%%%????**++:;        
+*****************+++;;;;;:::;::::::::::::::::;;;;;;;:;;+*********?????**++++++:;        
+::::::::::::::,,,,,,,,,,,,,,,,::::,,,,,,,,,,,,,,,,,,,,,,,,,,,::::::::::::::::::;        
+***+++++++++++++++++++**+++++++++++++++++++++++++++++;;++;;;;;;;++++++++++++;;;;`
+
+text5=`
+.............................,:+??????%%%%%??**?????+:,.........................
+...........................:;*???????%S%?%%%??***?????+:........................
+.........................,+???%%%%%??%%*?S%%???%%????***+:......................
+........................;*???%%%%????%?*?%%%%%%??%%%??****;.....................
+.......................;*??%%%?%%%%??%?*?%%???%%%??????**+*;,...................
+.....................,;????%??%%%?????**?%??????%%%%??****+*+,..................
+....................,+?????????%????*****?????***??%%%?****+++,.................
+....................;?%????*?%?**+++++++++***********??**+++++;,................
+...................,*%???**?%?*+++++++++++++++++*********++++++;,...............
+...................+?%?****?**+++++++++;+++++++++++++****?**+**+;,..............
+..................:*%?*?**??*+++++++;;;;+++++++++++++++++*?%?*?*+:..............    
+.................,+?%???**?**++++++++;;;+++++++++++++;;;;;+*%%??*+,.............    
+.................:*???%?**??*+++++;;;;++++++;;+++++*+++;;;;++?%%?+;.............    
+................,+*??%%**?%%??%%%???*++++++++**?%%%%%??**+;++;*??*;,............    
+................:+?%%S%**%%??***??%%%?*+++++**?????***++;+;;+;+??+;,............    
+...............,;+?%%S?*?%????%%S%S%??*++;;++*??%SSS??*++;;;+;;+*+;,............    
+...............:+*?%S%*??????%%*%SS??***++;+*+***%%?**++;;;;*;;;**+,............    
+..............,;+*?S%?*?%?***********+***+;;+++***++++;;;;;;?+;:+*+:............    
+..............;++*?S?*?%%?***+++++++++***++;;;+++++++++;;;;+?+::+*+:............    
+.............,;+**?S**?%%%?*++++++++++***+++;;;++++++++;;;;*?+::;++:............    
+.............,;+**??*??%SS%**+++++++++**++++;+++++++++++;;+?*;::;++;,...........    
+.............,;++*%?*??%S#S?**+++++++****++**++++++++++;;;*?*;::;;;;,...........    
+.............;++**%**???SS#%?*+++++++++***+++++++++;;+++;+%?+;;;;;;;,...........    
+............,;++**??**??S%SS?**+++++++++++*+++;;;;;;;;+++*%+;;;;;;;;:...........    
+............,;++**??**?*%%%SS?*+++++**?%%%%%??**+++;;;++*S*;;;;;;;;;;...........    
+............,;++**??****%%%%SS?*++++*????????***+++++++?S?++;:;;;;;;;...........    
+............:;++********%%%%%S#?*+++++********+++++++*S#%*++;;;;;;;;;,..........    
+...........,;+;+********?%%%%%#S%?*++++++++++++;;;+*%##S?**+;;;;;;;;;:..........    
+..........,;++++*****+***?%?%%SS???**++++++++++++*%SS#S%?**++;;++;;;;;,.........    
+.........,;+++++*****++*+????%%S??*************??%%SSSS%%?*+++;+++;;;;:.........    
+........,;+++*****+**++++*?%??%%?***********?????%%SS%%%%?++++;;++;;;;;,........    
+.......,;++**?**++*?*++++*????%??***************?%%%?%%%%?*+;+;;++++;;;;:.......    
+......,;+******++?%??*++;***?????*****+++*++++**?%%??%%%??*+++;;+++++++++;,.....    
+....,:+******?%%%??*?*+;;*?**???*****+++++++++**???*?%%%???++++;++++++++**+:,...    
+..,:+******++*?%??%?*?*+;+??**??*****+++++++++*????*??%%??**+++;;+++++*+?%%?*;::    
+,:+******++++;++++***??+;;+*??**?***++++++++++**??????%%??**++++;;++++**********    
++*+++;;;;;;;;;;;;;+++*?+;;;*?***?****++++++++++*?????%????***++++;;+++**+;;;;;;;    
+;;;;;;;;;;;;;;;;;;+++*+;;;;**+*++*****+**+++++***???%?????**++++++;;+++**++;;;;;    
+;;;;;;;;;;;;;;;;++**?*;;+;+**++;;;++;;;;;+++++++++;++++*??**+++++++;;++++**+;;;;    
+;::;;;;;;;;;;;;+*?***;;;++++++;;::;;;;;;::::::::::::;+++*??*++++++++;+*++++*+;;;    
+;;::;;;;;;;;;;++**+?*;;;+++++;;;;;::;;;;;::::::::;;;++++*?**+++++**++;++++;+++;;    
+;;::;;;;;;;;;;;+*+*?++++;+;;;;;;;;;;;::;;;;;;;;;;;;;++++*****++++***++++*++++++;    
+;;::;;;;;;;;;;;+++*?+;;;+;;;;;;;;;:::::;;;;;;;;;;;;;++++++++*++++?****++**+++;++    
+;;;::;;;;;;;;;;;;;+*+;;;;;;;;;;;;;;::::;;;;;;;;;;;;;++;+++++*+++*+****+++++;;;;;    
+;;;::;;;;;;;;;;;;;;+++++;;;;;;;;;;::::;;;;;;;;;;;;;;++++++++++++*++++++++;;;;;:;    
+;;;::;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;::::;;;;;;;;;;;;;;;;++++++++++++++++++;;;;;::    
+;;;;:;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;++++++++++++;;;;++;;;;:::    
+;;;;:;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;+++*++++++;;;;;;+;;;;;:::    
+;;;;:;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;+;;;++;;;;;;;;;;::::::    
+;;;;:;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;:;++;;:::::::`
+
+text6 = `
++++++++++++++++++++++++++++++++++++++++++++++++++++++++;;+++++++++++++++++++++++
++++++++;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;++**+;;+++;+;++++++++++++++
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;+S%?S##%+;;;;;;;;;;;;;;;;;;;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;+S?*++;+%%+;;;;;;;;;;;;;;;;;;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;*%;?*++::??;;;;;;;;;;;;;;;;;;;
+;;;;;;;;;;;;;;;;;;;;+%###S?;;;;;;;;;;;;;;;;;;;;;;;;%??+;;;+++;;;;;;;;;;;;;;;;;;;
+;;;;;;;;;;;;;;;;;;;+#@#SS#@S+;;;;;;;;;;;;;;;;;;;;;;?#S*;;;+*;;;;;;;;;;;;;;;;;;;;
+;;;;;;;;;;;;;;;;;;;?@?;::+S@%;;;;;;;;;;;;;;;;;;;;;;:*%*;::;;;;;;;;;;;;;;;;;;;;;;
+;;;;;;;;;;;;;;;;;;;*S++;++;%*;;;;;;;;;;;;;;;;;;:;;+?+;;;::,+%*+;;;;;;;;;;;;;;;;;
+*+++++++++++;;;;;;;;?*+;;+;+;;;;;;;;;;;;;;;;;+*?%S#@?%*:+S;%@@#S%?*+;;;;;;;;;;;;
+#S%%%%%%%%%%%?*++;;;;***++**;;;;;;;;;;;;;;;%##@@@@#@++%??++####@@@@##%;;;;;;;;+%
+###S%%%%%%%%%%S%%%?+;;+::+;;::;;;;;;;;;;;:?@@@@####@?,+#;,?@########@@?:;;;*%S##
+#######S######S%*+;:+;;;+**+;:;;;;???*****S@@@@@#@#@S,*@;:%@#######@###?%%%S####
+@@@###########S;::,+%%%?+:;++***::%#####SS#@@@@@@@@##:?@+:S@#######@#########@##
+SSSSSSSSSSSSSS%;:;+?%??%%?*+*+;:::*%%%%%%#@@@@@@@@@@#;?@*:%@@######@###SSSSSSSSS
+%%%%%%%%%%%%%S%*+*S%%*+%??S%+:::::+%%%%SS#@@@@@@@@@@@+%@%,%@@#####@@###SSSSSSSSS
+SSSSSSSSSSSS%S%+++?SS++%%#%*?*::::+SSSSSS@@@@@@@@@@@@*%@%,?@@#####@@####SSSSSSSS
+SSSSSS%SSSSSSS?+*???**++*%?;::,:::;SSSSS#@@@@@@@@@@@@%S@S,*@@@####@@####SSSSSSSS
+SSSS%%%%%%%%%%*:;*++*%?;:;*,,,,;:::?SS%S@@@@@@@@@@@@@S#@%,*@@@###@@@####SSSSSSSS
+SSSS%%%%%%%%%%*++*++**+;:::,,,,;;::;%SS#@#@@@@@@@@@@@##?;,*#@@@##@@@@####SSSSSS#
+SSS%%%%%%%%%%S%%?*:::+***,,::,,;+:::*S#@####@@@@@@@@@#@?+,*#@@@#@@@@@@###SSSSSSS
+S%S%SS%%%S%%%SSS?::,:++++:,,,::,;;::;%#@###@##@@@@@@@##S*,+SS@@@@@@@@@###SS####S
+%%S%%SS%%%%S%SS?:::,::::,::,,,,::+;::S@###@#S@@@@@@@@##S?:;%?#@####@@@###S#####S
+SS%%%%S%S%%SSSS;::,,,,,::,,:,,,,,:*:;#@###@#S@@@@@@@@#@#?::?*S@@#####@@########S       
+S%%%S%%%SSSSS#?::,,,,,,,::,,,,,,,,;;?######SS@@@@@@@@S%%?::+%%#@@####@@@#######S       
+SSSSSSS%SSSS##;:,,,,,,,,:,,,,,,,,,:;*@@@@@#S#@@@@@@@@%:??::;?%%#@###@#@#######S#       
+SSSSSSSSS%S##?::,,,,,,,::,,,,,,,,,,;+***?SSSS@@@@@@@@*;??:::+?*S@##@S##@@#####S#       
+S%SSS%SSS%S##;:,,,,,,,,::,,,,,,,,,,:+;:::;*%S@@@@@@@S;+%?::,:+;S@##@S###########       
+SSSSS%%SSSS#?::,,,,,,,,:::,,,,,,:,,:+++++**%#@@@@@@#;;?%?,,,,,;S@@@#SSSS########       
+SSSS%%%SSSSS::,,,,,,,,::::,,,,,,,:,,:+*??%%S#@@@@@@#S#@@#*++*?S@@@@#SSSS#SS##@##       
+SSSSSS%%SSS*::,,,,,,,,::::,,,,,,,:::::+%SSSS#@@@@@@@@@@@@@@@@@@@@@@@SSSS##S###S#       
+SSSSSSSSSSS:::,,,,,,,:::::,,,,,,,::,:::*S##S#@@@@@@@@@@@@@@@@@@@@@@@SSS#######S#       
+SS%SSSSSSS?::,,,,,,,,::::::,,,,,,:,::::+#SS###@@@@@@@@@@@@@@@@@@@@@#SSS#########       
+SSSS%S####*+;::,,,,,:::::::,,,,,,::,::::?###S#@@@@@@@@@@@@@@@@@@@@@#SSS###SS####       
+SSSSSS##@S++;;:::,,,:::::::,,,,,,::,,:::;#####@@@@@@@@@@@@@@@@@@@@@#SS###SSS#SS#       
+SSS######?+;;;:::::,:::::::,,,,,,::,,:::,*@###@@@@@@@@@#@@@@@@@@@@@#S####SSS##SS       
+######@@S*+:;;;;;;;::::::::,,,,,,::::,::::S@@@@@@@@@@@@#@@@@@@@@@@@#S##SS#SSSS##       
+######@@?*;:::;;;;;::::::::,,,,,,,:::::::,+@@@@@@@@@@@@##@@@@@@@@@@#####S#SSSS##`
+
+text7 = `
+%%%%%%%%%%%%%???????%%%%%%%%%%%%%SS##@@@@@@@@@@@@@@@@@@@@@@@#@@@@@@@@@@@@@@@@@@@
+SSSSSSS###SSSSSSSSSSSSSSSSSS#####@@@@@@@@@@@@@@@@@@@@@@@@###@@@@@@##@@@@@@@@@@@@
+##########@#####################@@@@@@@@@@@@@@@@@@@@@@@####@@@@@@@@@@@@@@@@@@@@@
+#########S???%#@@@@@@@@@@@########@@@@@@@@#S#######@@@@######@@@@@@@@@@@@@@@@@@@
+#####S?*++*%#@@@@@@@@@@@@@@@@@@#SS#@@@@@@#???%%SSSSS##@@@@@@@@@@@@@@@@###@@@@@@@
+SSSS*;::*S@@@@@@@@@@@@@@@@@@@@@@#SS#@@@@@S+++++*****+**?S#@@@####@#%?*+++*%@@@@@
+%?*::;;*@@@@@#####@@@@@@@@@@@@@@@@@@@@#@@#*++;;+++;;:::::+?S@@@#@@?;;+;;;:;S@@@@
++;:;+*:*S@@@@@@@@@@@@@@@@@#SSS###@@@@@@###?++*?**+;::::::::;?#@@@S+::;+;;;;?S#@@
+*;::;+:+*@@@@@##@@@@@@@@#S%%%%?**?S#@@@###S???*+;::;;;:::::::*%##%;::;+;;;;***S@
+?*+;+?;:;?#@@#@@@@@@@@@S%??**+;;;;+*?S@##S%%*+;+++*+;;:::::::;;*?*;::::;;;++;+*S
++++?%%;+*+S@@@@#@@@@#SS%*;;:::::;;;;+*#@#S?**+;;+++;;;:::::::::;;;;;;;;+++;;;;;+
+;:::+;;;+;%@@@@@@#@%;;**?*;:::::::;+???S@#%**;;;;;;;;;::::::::::::;;;;;++;;;;;;;
+?:::**;;::?@@@@###%;::;++%*+++;:::;*+**%##S%*;;;;;;;;;:::::::::::::;;;;++;;;;;;;
+?+::*?*?*;?@@#@@#?;:;+**?*+++;;:::++?%+%%S#%*;;::;;;;;:::::::::::::;;;+++;;;;;;;
++?;:::;;++%@@@@#?+++***+*?%+*+;:::;+++++*%S%?*??+;;;;;;::::::::::;;;;+++;;;;;;;;
+;;**++::+%#@@#%???*+;;;+*??;++:::::;++;;;*SS%%SS?+++++;;::::::::;;;++++;;;;;;;;;
+:;?;::*+:+S##S%++**+;::::::;;:::,,:::;++;+%SSSSS#S%?*+;;;;:::::;;;+*+++;;;;;;;::
+:;+:;;++;,;?SS%*;*+:;+::::::::::::::::+*++%SSSSS###%?+;;;;;::;;+*?*++++;;;;;:,,:
+:;:,+?:,:;::*?%?*+::::;:::::::::::::;+*+;+SSSSS###@@@%+;;;;;;+?S##%*+++++;,,,;?S
+:::,;+;:;;::;;+*+;::::::::::::::::::;+*?**#########@@@%*+**?%S###@@#S??*:,,;%###
+::;:;;::;+;+::;;;;:::::::::::::::;+*??%%?S#########@@@@@@####SS##@@@@@#+,+%#####
+::;;;;;:;;::::;::;;;::::::::::::;;++****?#@#####@@@@@@@@@@@#SSS##@@@@@%:?#######
+::::::;::::++,,,:::;;;;::::::::::::::::;%@@@@@@@@@@@@@@@@@##SSS##@@@@@%S######SS
+,,:::::::,::;:::;:,,:;;;;;;;:::::::::;+?###@@@@@@@@@@@@@@@#SSS##@@@@########SSSS
+::::::;++;::::::::,,,::;;;;;;+++*%%%SS####@@@@@@@@@@@@@@@@#S###@@@@#######SSSSSS
+:::,:::+**+:,,:;:,,,,::::;;;;;+*%#@@@@@@@@@@@@@@@@@@@@@@@##?#@@@@@######SSSSSSSS
+::::,:;;+*+:,,,::,,,,:::::;;;;+*%#@@@@@@@@@@@@@@@@@@@@#S#SS?S@@@@######S%SSSSSSS
+::::,:::;;::::,,,::::,,:::::;;+***#@@@@@@@@@@@@@@@@@@@@SSS##S##@#####S%%SSSSSSSS
+:::,:::::::::,,,,,:::::::::;;:;;+%#@@@@@@@@@@@@@@@@@@###?*%S##S#@###S%%%%SSSSSSS
+:::::,,,,::::,,,,,:,,:::::;+++;**%@@@@@@@@@@@@@@@@##*:,:::+##@@@@#SS%%%SSSSSSSSS
+::::::::::::,,,,::::,::,:+****?%%?#@@@@@@@@@@@@@@@%:,,,,,:+##@@@##S%%SSSSSSSSSSS
+,::::,,:::::,::::::,,:::;;++++***?%#@@@@@@@@@@@@#?:,,,,,::*#@@@@@SSSSSSSSSSSSSSS
+:::::::,:,:;::::::::::::::::::::;;;+*?S#@@@@@@@@@S;,,,:::;?#@##@@SSSSSSSSSSSSSSS
+,:::::::,,:::::::::::::::::::::::::::;;+*S@@@@@@@@#+;,,,;*%######SSSSSSSSSSSSSSS       
+:::::,:::::::::::::::::::::::::::;;+%@@@@@@@#%#S%+,:%#S@###SSSSSSSSSSSSSSS::;:::
+:::::,:::::::::::::::::::::::::::;;+%@@@@@@@#%#S%+,:%#S@###SSSSSSSSSSSSSSSSSSSSS`
+</script>
